@@ -21,7 +21,7 @@
         "opcodesio/log-viewer": "^3.7",
         "spatie/laravel-backup": "^8.6",
         "stevebauman/location": "^7.2",
-        "tallstackui/tallstackui": "^1.21"
+        "tallstackui/tallstackui": "^1.24"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.12",
