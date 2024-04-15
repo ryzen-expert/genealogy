@@ -16,7 +16,7 @@
             </div>
 
             <div class="w-full sm:max-w-5xl mt-6 p-6 bg-white shadow-md overflow-hidden rounded prose">
-                {!! $home !!}
+{{--                {!! $home !!}--}}
             </div>
         </div>
     </div>

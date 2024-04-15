@@ -10,7 +10,7 @@ use Laravel\Jetstream\Jetstream;
 // -----------------------------------------------------------------------------------------------
 Route::controller(App\Http\Controllers\Front\PageController::class)->group(function () {
     Route::get('/', 'home')->name('home');
-    Route::get('about', 'about')->name('about');
+//    Route::get('about', 'about')->name('about');
     Route::get('help', 'help')->name('help');
 });
 
@@ -47,19 +47,19 @@ Route::middleware([
     // -----------------------------------------------------------------------------------------------
     // gedcom
     // -----------------------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\GedcomController::class)->group(function () {
-        Route::get('export', 'export')->name('gedcom.export');
-        Route::get('import', 'import')->name('gedcom.import');
-    });
+//    Route::controller(App\Http\Controllers\Back\GedcomController::class)->group(function () {
+//        Route::get('export', 'export')->name('gedcom.export');
+//        Route::get('import', 'import')->name('gedcom.import');
+//    });
 
     Route::middleware(App\Http\Middleware\IsDeveloper::class)->group(function () {
         // -----------------------------------------------------------------------------------------------
         // pages
         // -----------------------------------------------------------------------------------------------
         Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
-            Route::get('dependencies', 'dependencies')->name('dependencies');
+//            Route::get('dependencies', 'dependencies')->name('dependencies');
             Route::get('session', 'session')->name('session');
-            Route::get('test', 'test')->name('test');
+//            Route::get('test', 'test')->name('test');
 
             Route::get('persons', 'persons')->name('persons');
             Route::get('teams', 'teams')->name('teams');

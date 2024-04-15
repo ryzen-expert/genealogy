@@ -1,13 +1,13 @@
 <x-form-section submit="createTeam">
     <x-slot name="title">
         <div class="dark:text-gray-400">
-            {{ __('Team Details') }}
+             {{ __('Family Details') }}
         </div>
     </x-slot>
 
     <x-slot name="description">
         <div class="dark:text-gray-100">
-            {{ __('Create a new team to collaborate with others.') }}
+            {{ __('Create a new family to collaborate with others.') }}
         </div>
     </x-slot>
 

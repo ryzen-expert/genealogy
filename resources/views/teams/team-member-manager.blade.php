@@ -7,20 +7,20 @@
             <x-form-section submit="addTeamMember">
                 <x-slot name="title">
                     <div class="dark:text-gray-400">
-                        {{ __('Add Team Member') }}
+                        {{ __('Add family Manger') }}
                     </div>
                 </x-slot>
 
                 <x-slot name="description">
                     <div class="dark:text-gray-100">
-                        {{ __('Add a new team member to your team, allowing them to collaborate with you.') }}
+                        {{ __('Add a new family Manger to your family, allowing them to manage with you.') }}
                     </div>
                 </x-slot>
 
                 <x-slot name="form">
                     <div class="col-span-6">
                         <div class="max-w-xl text-sm text-gray-600">
-                            {{ __('Please provide the email address of the person you would like to add to this team.') }}
+                            {{ __('Please provide the email address of the person you would like to add to this family.') }}
                         </div>
                     </div>
 
@@ -87,13 +87,13 @@
             <x-action-section>
                 <x-slot name="title">
                     <div class="dark:text-gray-400">
-                        {{ __('Pending Team Invitations') }}
+                        {{ __('Pending family Invitations') }}
                     </div>
                 </x-slot>
 
                 <x-slot name="description">
                     <div class="dark:text-gray-100">
-                        {{ __('These people have been invited to your team and have been sent an invitation email. They may join the team by accepting the email invitation.') }}
+                        {{ __('These people have been invited to your family and have been sent an invitation email. They may join the family by accepting the email invitation.') }}
                     </div>
                 </x-slot>
 
@@ -127,13 +127,13 @@
             <x-action-section>
                 <x-slot name="title">
                     <div class="dark:text-gray-400">
-                        {{ __('Team Members') }}
+                        {{ __('Family Mangers ') }}
                     </div>
                 </x-slot>
 
                 <x-slot name="description">
                     <div class="dark:text-gray-100">
-                        {{ __('All of the people that are part of this team.') }}
+                        {{ __('All of the family Mangers') }}
                     </div>
                 </x-slot>
 
@@ -228,11 +228,11 @@
     {{-- leave team confirmation modal --}}
     <x-confirmation-modal wire:model.live="confirmingLeavingTeam">
         <x-slot name="title">
-            {{ __('Leave Team') }}
+            {{ __('Leave Family') }}
         </x-slot>
 
         <x-slot name="content">
-            {{ __('Are you sure you would like to leave this team?') }}
+            {{ __('Are you sure you would like to leave this family?') }}
         </x-slot>
 
         <x-slot name="footer">
@@ -249,11 +249,11 @@
     {{-- remove team member confirmation modal --}}
     <x-confirmation-modal wire:model.live="confirmingTeamMemberRemoval">
         <x-slot name="title">
-            {{ __('Remove Team Member') }}
+            {{ __('Remove Family Member') }}
         </x-slot>
 
         <x-slot name="content">
-            {{ __('Are you sure you would like to remove this person from the team?') }}
+            {{ __('Are you sure you would like to remove this person from the family?') }}
         </x-slot>
 
         <x-slot name="footer">

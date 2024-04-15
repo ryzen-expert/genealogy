@@ -35,16 +35,24 @@
             </div>
         </div>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto w-full">
             <div class="tree-ltr">
                 <ul>
                     <x-tree-node.descendants :person="$person" :descendants="$descendants" :level_max="$count" />
                 </ul>
             </div>
+
+            <div class="tree-rtl">
+                <ul>
+                    <x-tree-node.descendants :person="$person" :descendants="$descendants" :level_max="$count" />
+                </ul>
+            </div>
+
         </div>
     </div>
 
     @push('styles')
         <link href="{{ asset('css/tree-ltr.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/tree-rtl.css') }}" rel="stylesheet">
     @endpush
 </div>

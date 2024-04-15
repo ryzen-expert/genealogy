@@ -2,21 +2,28 @@
     {{-- primary navigation menu --}}
     <div class="px-2 md:px-5">
         <div class="flex min-h-16 gap-5">
-            <div class="flex flex-grow gap-5">
+            <div class="flex flex-grow gap-5 mx-12">
                 {{-- logo --}}
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}" title="{{ __('app.home') }}">
-                        <x-svg.genealogy class="size-12 fill-dark dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="genealogy" />
-                    </a>
-                </div>
+{{--                <div class="shrink-0 flex items-center">--}}
+{{--                    <a href="{{ route('home') }}" title="{{ __('app.home') }}">--}}
+{{--                        <x-svg.genealogy class="size-12 fill-dark dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="genealogy" />--}}
+{{--                    </a>--}}
+{{--                </div>--}}
 
                 {{-- navigation links --}}
                 <div class="flex flex-wrap gap-5">
                     <div class="flex items-center gap-5">
+<<<<<<< Updated upstream
                         <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                             <x-ts-icon icon="home" class="size-5 mr-1" />
                             {{ __('app.home') }}
                         </x-nav-link>
+=======
+{{--                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">--}}
+{{--                            <x-icon.tabler icon="home" class="mr-1" />--}}
+{{--                            {{ __('app.home') }}--}}
+{{--                        </x-nav-link>--}}
+>>>>>>> Stashed changes
 
                         <x-nav-link href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
                             <x-ts-icon icon="search" class="size-5 mr-1" />
@@ -30,10 +37,17 @@
                             {{ __('birthday.birthdays') }}
                         </x-nav-link>
 
+<<<<<<< Updated upstream
                         <x-nav-link href="{{ route('help') }}" :active="request()->routeIs('help')">
                             <x-ts-icon icon="help" class="size-5 mr-1" />
                             {{ __('app.help') }}
                         </x-nav-link>
+=======
+{{--                        <x-nav-link href="{{ route('help') }}" :active="request()->routeIs('help')">--}}
+{{--                            <x-icon.tabler icon="help" class="mr-1" />--}}
+{{--                            {{ __('app.help') }}--}}
+{{--                        </x-nav-link>--}}
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
@@ -79,6 +93,7 @@
                                             <hr />
 
                                             {{-- gedcom --}}
+<<<<<<< Updated upstream
                                             <x-dropdown-link href="{{ route('gedcom.import') }}">
                                                 <x-ts-icon icon="droplet-up" class="size-5 inline-block mr-1" />
                                                 {{ __('team.gedcom_import') }}
@@ -88,6 +103,17 @@
                                                 <x-ts-icon icon="droplet-down" class="size-5 inline-block mr-1" />
                                                 {{ __('team.gedcom_export') }}
                                             </x-dropdown-link>
+=======
+{{--                                            <x-dropdown-link href="{{ route('gedcom.import') }}">--}}
+{{--                                                <x-icon.tabler icon="droplet-up" class="mr-1" />--}}
+{{--                                                {{ __('team.gedcom_import') }}--}}
+{{--                                            </x-dropdown-link>--}}
+
+{{--                                            <x-dropdown-link href="{{ route('gedcom.export') }}">--}}
+{{--                                                <x-icon.tabler icon="droplet-down" class="mr-1" />--}}
+{{--                                                {{ __('team.gedcom_export') }}--}}
+{{--                                            </x-dropdown-link>--}}
+>>>>>>> Stashed changes
                                         @endcan
 
                                         {{-- teams switcher --}}
@@ -178,9 +204,9 @@
             </div>
 
             <div class="flex flex-col">
-                <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">
-                    <x-ts-theme-switch only-icons />
-                </div>
+{{--                <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">--}}
+{{--                    <x-ts-theme-switch only-icons /> ddd--}}
+{{--                </div>--}}
                 <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">
                     <x-set.offcanvas />
                 </div>
@@ -202,10 +228,17 @@
     {{-- responsive navigation menu --}}
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden">
         <div class="space-y-1 border-t border-gray-200">
+<<<<<<< Updated upstream
             <x-nav-link-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
                 <x-ts-icon icon="home" class="size-5 inline-block mr-1" />
                 {{ __('app.home') }}
             </x-nav-link-responsive>
+=======
+{{--            <x-nav-link-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">--}}
+{{--                <x-icon.tabler icon="home" class="mr-1" />--}}
+{{--                {{ __('app.home') }}--}}
+{{--            </x-nav-link-responsive>--}}
+>>>>>>> Stashed changes
 
             <x-nav-link-responsive href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
                 <x-ts-icon icon="search" class="size-5 inline-block mr-1" />
@@ -217,10 +250,17 @@
                 {{ __('birthday.birthdays') }}
             </x-nav-link-responsive>
 
+<<<<<<< Updated upstream
             <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
                 <x-ts-icon icon="help" class="size-5 inline-block mr-1" />
                 {{ __('app.help') }}
             </x-nav-link-responsive>
+=======
+{{--            <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">--}}
+{{--                <x-icon.tabler icon="help" class="mr-1" />--}}
+{{--                {{ __('app.help') }}--}}
+{{--            </x-nav-link-responsive>--}}
+>>>>>>> Stashed changes
         </div>
 
         @guest
@@ -307,6 +347,7 @@
                                 {{ __('team.create') }}
                             </x-nav-link-responsive>
 
+<<<<<<< Updated upstream
                             {{-- gedcom --}}
                             <x-nav-link-responsive href="{{ route('gedcom.import') }}" :active="request()->routeIs('gedcom.import')">
                                 <x-ts-icon icon="droplet-up" class="size-5 inline-block mr-1" />
@@ -317,6 +358,18 @@
                                 <x-ts-icon icon="droplet-down" class="size-5 inline-block mr-1" />
                                 {{ __('team.gedcom_export') }}
                             </x-nav-link-responsive>
+=======
+{{--                            --}}{{-- gedcom --}}
+{{--                            <x-nav-link-responsive href="{{ route('gedcom.import') }}" :active="request()->routeIs('gedcom.import')">--}}
+{{--                                <x-icon.tabler icon="droplet-up" class="mr-1" />--}}
+{{--                                {{ __('team.gedcom_import') }}--}}
+{{--                            </x-nav-link-responsive>--}}
+
+{{--                            <x-nav-link-responsive href="{{ route('gedcom.export') }}" :active="request()->routeIs('gedcom.export')">--}}
+{{--                                <x-icon.tabler icon="droplet-down" class="mr-1" />--}}
+{{--                                {{ __('team.gedcom_export') }}--}}
+{{--                            </x-nav-link-responsive>--}}
+>>>>>>> Stashed changes
                         @endcan
 
                         {{-- team switcher --}}

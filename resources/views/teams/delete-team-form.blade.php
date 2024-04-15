@@ -1,13 +1,13 @@
 <x-action-section>
     <x-slot name="title">
         <div class="dark:text-gray-400">
-            {{ __('team.delete') }}
+{{--            {{ __('team.delete') }}--}}
         </div>
     </x-slot>
 
     <x-slot name="description">
         <div class="dark:text-gray-100">
-            {{ __('Permanently delete this team.') }}
+{{--            {{ __('Permanently delete this Family.') }}--}}
         </div>
     </x-slot>
 
@@ -25,14 +25,14 @@
 
         <x-hr.normal />
 
-        <div class="max-w-xl text-sm text-gray-600">
-            {{ __('Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.') }}
-        </div>
+{{--        <div class="max-w-xl text-sm text-gray-600">--}}
+{{--            {{ __('Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.') }}--}}
+{{--        </div>--}}
 
         <div class="mt-5">
-            <x-ts-button color="danger" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
-                {{ __('team.delete') }}
-            </x-ts-button>
+{{--            <x-ts-button color="danger" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">--}}
+{{--                {{ __('team.delete') }}--}}
+{{--            </x-ts-button>--}}
         </div>
 
         {{-- delete team confirmation modal --}}

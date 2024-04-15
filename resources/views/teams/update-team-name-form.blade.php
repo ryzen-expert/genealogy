@@ -1,13 +1,13 @@
 <x-form-section submit="updateTeamName">
     <x-slot name="title">
         <div class="dark:text-gray-400">
-            {{ __('Team Name') }}
+            {{ __('Family Name') }}
         </div>
     </x-slot>
 
     <x-slot name="description">
         <div class="dark:text-gray-100">
-            {{ __('The team\'s name and owner information.') }}
+            {{ __('The Families name and owner information.') }}
         </div>
     </x-slot>
 

@@ -107,11 +107,11 @@
                 <div>
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
-                    <p>
-                        <x-nav-link-responsive href="{{ route('dependencies') }}" :active="request()->routeIs('dependencies')">
-                            {{ __('app.dependencies') }}
-                        </x-nav-link-responsive>
-                    </p>
+{{--                    <p>--}}
+{{--                        <x-nav-link-responsive href="{{ route('dependencies') }}" :active="request()->routeIs('dependencies')">--}}
+{{--                            {{ __('app.dependencies') }}--}}
+{{--                        </x-nav-link-responsive>--}}
+{{--                    </p>--}}
 
                     <p>
                         <x-nav-link-responsive href="{{ route('session') }}" :active="request()->routeIs('session')">
@@ -119,11 +119,11 @@
                         </x-nav-link-responsive>
                     </p>
 
-                    <p>
-                        <x-nav-link-responsive href="{{ route('test') }}" :active="request()->routeIs('test')">
-                            {{ __('Test') }}
-                        </x-nav-link-responsive>
-                    </p>
+{{--                    <p>--}}
+{{--                        <x-nav-link-responsive href="{{ route('test') }}" :active="request()->routeIs('test')">--}}
+{{--                            {{ __('Test') }}--}}
+{{--                        </x-nav-link-responsive>--}}
+{{--                    </p>--}}
                 </div>
             @else
                 {{-- others --}}
@@ -160,11 +160,11 @@
         <div class="flex items-center text-xs">
             <div class="text-right px-2">
                 {{ __('app.design_development') }}<br />
-                {{ __('app.by') }} <x-link href="https://www.kreaweb.be/" target="_blank">KREAWEB</x-link>
+                {{ __('app.by') }} <x-link href="https://www.maheralmatari.be/" target="_blank">maheralmatari</x-link>
             </div>
 
-            <a href="https://www.kreaweb.be/" target="_blank" title="Kreaweb">
-                <x-svg.kreaweb class="size-11 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="kreaweb" />
+            <a href="https://www.maheralmatari.be/" target="_blank" title="maheralmatari">
+                <x-svg.kreaweb class="size-11 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="maheralmatari" />
             </a>
         </div>
     </x-slot:footer>
