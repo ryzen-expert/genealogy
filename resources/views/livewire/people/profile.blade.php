@@ -98,10 +98,10 @@
                         <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
                     </td>
                 </tr>
-                <tr class="border-b-2">
-                    <td class="pr-2 border-r-2">{{ __('person.gender') }}</td>
-                    <td class="pl-2">{{ $person->gender ? $person->gender->name : '' }}</td>
-                </tr>
+{{--                <tr class="border-b-2">--}}
+{{--                    <td class="pr-2 border-r-2">{{ __('person.gender') }}</td>--}}
+{{--                    <td class="pl-2">{{ $person->gender ? $person->gender->name : '' }}</td>--}}
+{{--                </tr>--}}
 
                 <tr>
                     <td class="pr-2 border-r-2">{{ __('person.dob') }}</td>

@@ -16,7 +16,7 @@
                         @endif
                     </div>
 
-                    <div class="flex-grow max-w-full flex-1 text-center">
+                    <div class="flex-grow max-w-full flex-1 text-end">
                         @if (auth()->user()->hasPermission('person:create'))
                             <x-ts-button href="/people/add" color="emerald" class="text-sm">
                                 <x-ts-icon icon="user-plus" class="me-2" />
@@ -25,35 +25,7 @@
                         @endif
                     </div>
 
-                    <div class="flex-grow max-w-full flex-1 text-end">
-                        @if ($this->search)
-                            @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
-                                {!! __('app.people_found', [
-                                    'total' => $people->total(),
-                                    'scope' => strtoupper(__('team.all_teams')),
-                                    'keyword' => $this->search,
-                                ]) !!}
-                            @else
-                                {!! __('app.people_found', [
-                                    'total' => $people->total(),
-                                    'scope' => auth()->user()->currentTeam->name,
-                                    'keyword' => $this->search,
-                                ]) !!}
-                            @endif
-                        @else
-                            @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
-                                {!! __('app.people_available', [
-                                    'total' => $people_db,
-                                    'scope' => strtoupper(__('team.all_teams')),
-                                ]) !!}
-                            @else
-                                {!! __('app.people_available', [
-                                    'total' => $people_db,
-                                    'scope' => auth()->user()->currentTeam->name,
-                                ]) !!}
-                            @endif
-                        @endif
-                    </div>
+
                 </div>
 
                 {{-- search box --}}
@@ -69,9 +41,41 @@
                         <div class="flex-grow min-w-max max-w-full flex-1 text-end">
                             {{ $people->links('livewire/pagination/tailwind') }}
                         </div>
+
+                        <div class="flex-grow max-w-full flex-1 text-end">
+                            @if ($this->search)
+                                @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
+                                    {!! __('app.people_found', [
+                                        'total' => $people->total(),
+                                        'scope' => strtoupper(__('team.all_teams')),
+                                        'keyword' => $this->search,
+                                    ]) !!}
+                                @else
+                                    {!! __('app.people_found', [
+                                        'total' => $people->total(),
+                                        'scope' => auth()->user()->currentTeam->name,
+                                        'keyword' => $this->search,
+                                    ]) !!}
+                                @endif
+                            @else
+                                @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
+                                    {!! __('app.people_available', [
+                                        'total' => $people_db,
+                                        'scope' => strtoupper(__('team.all_teams')),
+                                    ]) !!}
+                                @else
+                                    {!! __('app.people_available', [
+                                        'total' => $people_db,
+                                        'scope' => auth()->user()->currentTeam->name,
+                                    ]) !!}
+                                @endif
+                            @endif
+                        </div>
                     </div>
                 @endif
             </div>
+
+
         </form>
     </div>
 

@@ -11,7 +11,7 @@ class Descendants extends Component
 
     public $descendants;
 
-    public $count = 3; // default
+    public $count = 5; // default
 
     public $count_min = 1;
 

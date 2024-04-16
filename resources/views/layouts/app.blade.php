@@ -47,7 +47,9 @@
         <x-banner />
 
         {{-- content --}}
-        <main class="mx-auto px-2 md:px-5 flex flex-grow">
+{{--        <main class="mx-auto px-2 md:px-5 flex flex-grow">--}}
+
+        <main class="flex-1 items-center justify-center min-h-screen mx-auto px-2 md:px-5">
             {{ $slot }}
         </main>
 

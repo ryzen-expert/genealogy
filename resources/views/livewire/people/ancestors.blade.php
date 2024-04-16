@@ -1,5 +1,5 @@
 <div>
-    <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+    <div class="flex flex-col mx-auto rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
         <div class="h-14 min-h-min p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
             <div class="flex flex-wrap gap-2 justify-center items-start">
                 <div class="flex-grow min-w-max max-w-full flex-1">
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto  cmx-auto">
             <div class="tree-rtl @if ($count === 1) pb-2 @endif">
                 <ul>
                     <x-tree-node.ancestors :person="$person" :ancestors="$ancestors" :level_max="$count" />

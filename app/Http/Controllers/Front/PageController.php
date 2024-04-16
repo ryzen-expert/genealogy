@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Jetstream;
 
@@ -12,7 +13,8 @@ class PageController extends Controller
     public function home(Request $request)
     {
 
-        return to_route('login');
+        return  Auth::user() ?to_route('people.search') : to_route('login');
+//        return to_route('login');
         $homeFile = Jetstream::localizedMarkdownPath('home.md');
 
         return view('home', [

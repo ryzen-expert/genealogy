@@ -12,7 +12,8 @@
     <div class="w-full py-5 space-y-5">
         <livewire:people.heading :person="$person" />
 
-        <div class="md:min-w-max md:max-w-sm">
+{{--        <div class="md:min-w-max md:max-w-sm">--}}
+        <div class=" mx-auto ">
             <div class="overflow-x-auto">
                 <livewire:people.descendants :person="$person" />
             </div>

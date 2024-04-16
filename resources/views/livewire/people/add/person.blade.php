@@ -1,5 +1,5 @@
 <form wire:submit="savePerson">
-    <div class="md:w-192 flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+    <div class="md:w-192 flex flex-col  mx-auto p-4 rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
         <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
             <div class="flex flex-wrap gap-2 justify-center items-start">
                 <div class="flex-grow min-w-max max-w-full flex-1">
@@ -11,7 +11,7 @@
         </div>
 
         <div class="p-4 bg-neutral-200">
-            <x-ts-errors class="mb-2" close />
+{{--            <x-ts-errors class="mb-2" close />--}}
 
             <div class="grid grid-cols-6 gap-5">
                 {{-- firstname --}}
@@ -68,10 +68,10 @@
                 </div>
 
                 {{-- gender_id --}}
-                <div class="col-span-3">
-                    <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$personForm->genders()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..."
-                        wire:dirty.class="bg-warning-100 dark:text-black" searchable />
-                </div>
+{{--                <div class="col-span-3">--}}
+{{--                    <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$personForm->genders()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..."--}}
+{{--                        wire:dirty.class="bg-warning-100 dark:text-black" searchable />--}}
+{{--                </div>--}}
                 <x-hr.narrow class="col-span-6 !my-0" />
 
                 {{-- yob --}}

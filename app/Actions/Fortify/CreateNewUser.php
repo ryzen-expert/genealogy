@@ -53,7 +53,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
-            'name' => $user->name . "'s Team",
+            'name' => $user->name . "'s Family",
             'personal_team' => true,
         ]));
     }
