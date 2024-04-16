@@ -17,16 +17,16 @@ class UserAndTeamSeeder extends Seeder
         User::factory([
             'firstname' => '_',
             'surname' => 'Developer',
-            'email' => 'developer@genealogy.test',
+            'email' => 'developer@tree.test',
             'is_developer' => true,
         ])
             ->withPersonalTeam()
             ->create();
 
         User::factory([
-            'firstname' => 'Kreaweb',
+            'firstname' => 'Maher',
             'surname' => 'Developer',
-            'email' => 'kreaweb@genealogy.test',
+            'email' => 'maher@tree.test',
             'is_developer' => true,
             'language' => 'nl',
             'timezone' => 'Europe/Brussels',
@@ -40,7 +40,7 @@ class UserAndTeamSeeder extends Seeder
         $administrator = User::factory([
             'firstname' => '_',
             'surname' => 'Administrator',
-            'email' => 'administrator@genealogy.test',
+            'email' => 'administrator@tree.test',
         ])
             ->withPersonalTeam()
             ->create();
@@ -48,8 +48,8 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // create demo teams (owned by administrator)
         // -----------------------------------------------------------------------------------
-        $team_british_royals = $this->createTeamBig('administrator@genealogy.test', 'BRITISH ROYALS', 'Part of the British Royal family around Queen Elizabeth II');
-        $team_kennedy = $this->createTeamBig('administrator@genealogy.test', 'KENNEDY', 'Part of the Kennedy family around former US President John Fitzgerald Kennedy');
+        $team_british_royals = $this->createTeamBig('administrator@tree.test', 'BRITISH ROYALS', 'Part of the British Royal family around Queen Elizabeth II');
+        $team_kennedy = $this->createTeamBig('administrator@tree.test', 'KENNEDY', 'Part of the Kennedy family around former US President John Fitzgerald Kennedy');
 
         $administrator->update([
             'current_team_id' => $team_british_royals->id,
@@ -72,7 +72,7 @@ class UserAndTeamSeeder extends Seeder
         $manager = User::factory([
             'firstname' => '_',
             'surname' => 'Manager',
-            'email' => 'manager@genealogy.test',
+            'email' => 'manager@tree.test',
             'current_team_id' => $team_british_royals->id,
         ])
             ->withPersonalTeam()
@@ -87,7 +87,7 @@ class UserAndTeamSeeder extends Seeder
         $editor = User::factory([
             'firstname' => '_',
             'surname' => 'Editor',
-            'email' => 'editor@genealogy.test',
+            'email' => 'editor@tree.test',
             'current_team_id' => $team_kennedy->id,
         ])
             ->withPersonalTeam()
@@ -106,7 +106,7 @@ class UserAndTeamSeeder extends Seeder
                 $user = User::factory([
                     'firstname' => '__',
                     'surname' => 'Member ' . $i,
-                    'email' => 'member_' . $i . '@genealogy.test',
+                    'email' => 'member_' . $i . '@tree.test',
                     'current_team_id' => $team_british_royals,
                 ])
                     ->withPersonalTeam()
@@ -122,7 +122,7 @@ class UserAndTeamSeeder extends Seeder
                 $user = User::factory([
                     'firstname' => '__',
                     'surname' => 'Member ' . $i,
-                    'email' => 'member_' . $i . '@genealogy.test',
+                    'email' => 'member_' . $i . '@tree.test',
                     'current_team_id' => $team_kennedy,
                 ])
                     ->withPersonalTeam()
@@ -138,7 +138,7 @@ class UserAndTeamSeeder extends Seeder
                 $user = User::factory([
                     'firstname' => '___',
                     'surname' => 'Member ' . $i,
-                    'email' => 'member_' . $i . '@genealogy.test',
+                    'email' => 'member_' . $i . '@tree.test',
                 ])
                     ->withPersonalTeam()
                     ->create();

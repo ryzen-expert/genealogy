@@ -30,9 +30,9 @@
 {{--        </div>--}}
 
         <div class="mt-5">
-{{--            <x-ts-button color="danger" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">--}}
-{{--                {{ __('team.delete') }}--}}
-{{--            </x-ts-button>--}}
+            <x-ts-button color="danger" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
+                {{ __('team.delete') }}
+            </x-ts-button>
         </div>
 
         {{-- delete team confirmation modal --}}
