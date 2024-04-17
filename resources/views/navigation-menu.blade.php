@@ -43,22 +43,22 @@
             <div class="hidden md:flex md:items-center gap-5">
                 @auth
                     {{-- teams dropdown --}}
-                    {{ Auth::user()->currentTeam->name }}
+{{--                    {{ Auth::user()->currentTeam->name }}--}}
 
 
                     <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
                                             <x-set.language />
                                         </div>
 
-
-                    @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+{{--                        {{ auth()->user()->email}}--}}
+                    @if (Laravel\Jetstream\Jetstream::hasTeamFeatures()   )
                         <div class="relative min-w-max">
                             <x-dropdown align="right" width="60">
                                 <x-slot name="trigger">
                                     <span class="inline-flex rounded">
                                         <button type="button"
                                             class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                            {{ Auth::user()->currentTeam->name }}s
+                                            {{ Auth::user()->currentTeam->name }}
 
                                             <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />

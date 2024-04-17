@@ -33,6 +33,7 @@ class Search extends Component
         if ($this->search) {
             $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
                 ->search($this->search)
+                ->where('team_id',auth()->user()->current_team_id)
                 ->orderBy('firstname')->orderBy('surname') // reverse order when application goes in production
                 ->paginate($this->perpage);
         } else {
