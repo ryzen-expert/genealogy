@@ -9,8 +9,8 @@ return new class extends Migration {
     {
         Schema::create('domains', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('domain')->unique();
-            $table->foreignId('team_id')->constrained()->unique();
+            $table->string('domain');
+            $table->foreignId('team_id')->constrained();
             $table->boolean('is_paid')->default(false);
             $table->boolean('is_active')->default(false);
             $table->date('start_date');
