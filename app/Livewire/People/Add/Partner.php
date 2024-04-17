@@ -93,16 +93,24 @@ class Partner extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
+//        dd($this->person);
         $persons = Person::PartnerOffset($this->person->birth_date, $this->person->birth_year)
             ->orderBy('firstname', 'asc')->orderBy('surname', 'asc')
+            ->where('sex','<>',$this->person->sex)
+            ->withoutGlobalScope('team')
             ->get()
             ->map(function ($p) {
+//                dd($p);
                 return [
                     'id' => $p->id,
+                    'team' => $p->team_id,
+//                    'description' =>
+                    'description' => __('team.team') .' '. $p->team->name,
                     'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
                 ];
             })->toArray();
 
+//        dd($persons);
         return view('livewire.people.add.partner')->with(compact('persons'));
     }
 }

@@ -114,6 +114,7 @@ class Person extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
+
         return view('livewire.people.add.person');
     }
 }

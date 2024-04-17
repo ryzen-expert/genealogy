@@ -35,7 +35,8 @@
             </div>
         </div>
 
-        <div class="overflow-x-auto cmx-auto">
+        <div class="overflow-x-auto cmx-auto" dir="ltr">
+{{--            app()->getLocale()==='ar' ? 'tree-rtl' : 'tree-ltr'--}}
             <div class="tree-ltr">
                 <ul>
 {{--                    @dump($descendants);--}}
@@ -53,6 +54,10 @@
     </div>
 
     @push('styles')
+        @php
+          $css=   app()->getLocale()==='ar' ? 'tree-rtl' : 'tree-ltr';
+        @endphp
+{{--        <link href="{{ asset('css/'.$css) }}" rel="stylesheet">--}}
         <link href="{{ asset('css/tree-ltr.css') }}" rel="stylesheet">
 {{--        <link href="{{ asset('css/tree-rtl.css') }}" rel="stylesheet">--}}
     @endpush

@@ -11,7 +11,7 @@ class Ancestors extends Component
 
     public $ancestors;
 
-    public $count = 5;              // default
+    public $count = 4;              // default
 
     public $count_min = 1;
 

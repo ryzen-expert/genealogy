@@ -5,24 +5,42 @@ return [
 
 
     'biological' => 'بيولوجي',
-    'person' => 'Person',
-    'people' => 'People',
 
-    'family' => 'Family',
-    'profile' => 'Profile',
+    'family' => 'العائلة',
+    'profile' => 'الملف الشخصي',
 
-    'partner' => 'Partner',
-    'partners' => 'Partners',
+    'partner' => 'الشريك',
+    'partners' => 'الشركاء',
 
-    'children' => 'Children',
-    'parents' => 'Parents',
-    'grandchildren' => 'Grandchildren',
-    'siblings' => 'Siblings',
-    'ancestors' => 'Ancestors',
-    'descendants' => 'Descendants',
-    'dead' => 'Dead',
-    'death' => 'Death',
-    'deceased' => 'Deceased',
+    'children' => 'الأطفال',
+    'parents' => 'الوالدين',
+    'grandchildren' => 'الأحفاد',
+    'siblings' => 'الإخوة',
+    'ancestors' => 'الأسلاف',
+    'descendants' => 'الأحفاد',
+    'dead' => 'متوفى',
+    'death' => 'الوفاة',
+    'deceased' => 'المتوفى',
+
+
+//    'person' => 'Person',
+//    'people' => 'People',
+//
+//    'family' => 'Family',
+//    'profile' => 'Profile',
+//
+//    'partner' => 'Partner',
+//    'partners' => 'Partners',
+//
+//    'children' => 'Children',
+//    'parents' => 'Parents',
+//    'grandchildren' => 'Grandchildren',
+//    'siblings' => 'Siblings',
+//    'ancestors' => 'Ancestors',
+//    'descendants' => 'Descendants',
+//    'dead' => 'Dead',
+//    'death' => 'Death',
+//    'deceased' => 'Deceased',
 
 //
 //    'years' => '[0,1] Year|[2,*] Years',

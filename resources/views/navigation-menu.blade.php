@@ -43,6 +43,14 @@
             <div class="hidden md:flex md:items-center gap-5">
                 @auth
                     {{-- teams dropdown --}}
+                    {{ Auth::user()->currentTeam->name }}
+
+
+                    <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
+                                            <x-set.language />
+                                        </div>
+
+
                     @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                         <div class="relative min-w-max">
                             <x-dropdown align="right" width="60">
@@ -50,7 +58,7 @@
                                     <span class="inline-flex rounded">
                                         <button type="button"
                                             class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                            {{ Auth::user()->currentTeam->name }}
+                                            {{ Auth::user()->currentTeam->name }}s
 
                                             <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
@@ -71,6 +79,7 @@
                                             <x-ts-icon icon="droplet-cog" class="size-5 inline-block mr-1" />
                                             {{ __('team.settings') }}
                                         </x-dropdown-link>
+
 
                                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                             <x-dropdown-link href="{{ route('teams.create') }}">
@@ -166,6 +175,8 @@
                         </x-dropdown>
                     </div>
                 @else
+{{--                    @dd(\Illuminate\Support\Facades\Session::get('tree_domain'))--}}
+                    @if (\Illuminate\Support\Facades\Session::get('tree_domain'))
                     <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
                         <x-ts-icon icon="login-2" class="size-5 inline-block mr-1" />
                         {{ __('auth.login') }}
@@ -175,7 +186,7 @@
                         <x-ts-icon icon="user-plus" class="size-5 inline-block mr-1" />
                         {{ __('auth.register') }}
                     </x-nav-link>
-
+                    @endif
                     <x-set.language />
                 @endauth
             </div>
@@ -184,9 +195,13 @@
 {{--                <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">--}}
 {{--                    <x-ts-theme-switch only-icons /> ddd--}}
 {{--                </div>--}}
-                <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">
-                    <x-set.offcanvas />
-                </div>
+{{--                <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">--}}
+{{--                    <x-set.offcanvas />--}}
+{{--                </div>--}}
+{{--                <div class="pl-4 pt-2 pb-2 border-t border-gray-200">--}}
+{{--                    <x-set.language />--}}
+{{--                </div>--}}
+
             </div>
 
             {{-- hamburger --}}
@@ -245,12 +260,12 @@
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
                 <x-set.language />
             </div>
-            <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
-                <x-ts-theme-switch only-icons />
-            </div>
-            <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
-                <x-set.offcanvas />
-            </div>
+{{--            <div class="pl-4 pt-2 pb-2 border-t border-gray-200">--}}
+{{--                <x-ts-theme-switch only-icons />--}}
+{{--            </div>--}}
+{{--            <div class="pl-4 pt-2 pb-2 border-t border-gray-200">--}}
+{{--                <x-set.offcanvas />--}}
+{{--            </div>--}}
         @endguest
 
         @auth
@@ -343,10 +358,10 @@
 
             {{-- responsive settings options --}}
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
-                <x-ts-theme-switch only-icons />
+{{--                <x-ts-theme-switch only-icons />--}}
             </div>
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
-                <x-set.offcanvas />
+{{--                <x-set.offcanvas />--}}
             </div>
         @endauth
     </div>

@@ -8,14 +8,19 @@
         <div class="rounded bg-secondary-100 p-4 text-base text-secondary-800" role="alert">
             <div class="flex flex-row">
                 <div class="basis-1/2">
-                    {{ __('auth.role') }} :
+{{--                    {{ __('auth.role') }} :--}}
+                    {{__('team.team')}}
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-                    {{ __('auth.permissions') }} :
+{{--                    {{ __('auth.permissions') }} :--}}
                 </div>
 
                 <div class="basis-1/2">
                     @if (Auth::user())
-                        {{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }}
+{{--                        @dd(auth()->user()->name)--}}
+{{--                        {{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }}--}}
+{{--                        {{auth()->user()->name}}--}}
+                       {{auth()->user()?->currentTeam?->name}}
+{{--                        {{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }}--}}
 
                         <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
                         @foreach (Auth::user()->teamPermissions(Auth::user()->currentTeam) as $permission)
@@ -127,7 +132,8 @@
                 </div>
             @else
                 {{-- others --}}
-                <div>{{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
+{{--                <div>  {{__('team.team')}} {{auth()->user()?->currentTeam->name}} ...</div>--}}
+{{--                <div>{{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>--}}
 
                 <div>
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
@@ -148,11 +154,11 @@
             <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
             </div>
 
-            <p>
-                <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
-                    {{ __('app.help') }}
-                </x-nav-link-responsive>
-            </p>
+{{--            <p>--}}
+{{--                <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">--}}
+{{--                    {{ __('app.help') }}--}}
+{{--                </x-nav-link-responsive>--}}
+{{--            </p>--}}
         @endguest
     </div>
 

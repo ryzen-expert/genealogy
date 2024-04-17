@@ -45,6 +45,9 @@
                 </label>
             </div>
 
+{{--            @if (\Illuminate\Support\Facades\Session::get('tree_domain'))--}}
+                @if (\Illuminate\Support\Facades\Session::get('tree_domain')  || \Illuminate\Support\Facades\Session::get('sub_domain') === env('ADMIN_URL') )
+
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
@@ -57,6 +60,7 @@
                     {{ __('auth.login') }}
                 </x-ts-button>
             </div>
+            @endif
         </form>
     </x-authentication-card>
 </x-app-layout>

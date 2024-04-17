@@ -81,6 +81,8 @@ class JetstreamServiceProvider extends ServiceProvider
             return view('auth.login');
         });
 
+
+
         // register new LoginResponse
         $this->app->singleton(
             \Laravel\Fortify\Contracts\LoginResponse::class,
@@ -128,8 +130,7 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::role('editor', 'Editor', [
             'person:create',
             'person:read',
-            'person:update',
-
+            'person:update', 
             'couple:create',
             'couple:read',
             'couple:update',

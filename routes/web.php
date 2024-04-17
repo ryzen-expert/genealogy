@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TeamInvitationController;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Jetstream;
 
@@ -89,6 +90,15 @@ Route::get('language/{locale}', function ($locale) {
     Carbon::setLocale($locale);
     session()->put('locale', $locale);
 
+    if (Auth::check()) {
+        $user = Auth::user();
+        // Update the user's language preference.
+        $user->language = $locale;
+        $user->save();
+    }
+
+
+//    dd( session()->get('locale') ,$locale);
     return redirect()->back();
 });
 

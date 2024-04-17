@@ -17,7 +17,7 @@
                 <livewire:people.profile :person="$person" />
             </div>
 
-            <div class="min-w-100 md:max-w-max flex flex-col flex-grow gap-5">
+            <div class="min-w-100 md:max-w-max flex flex-col flex-grow gap-5 p-2">
                 <livewire:people.family :person="$person" />
                 <livewire:people.partners :person="$person" />
                 <livewire:people.children :person="$person" />

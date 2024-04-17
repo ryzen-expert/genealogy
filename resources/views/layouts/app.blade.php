@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="tallstackui_darkTheme()" x-bind:class="{ 'dark bg-gray-900': darkTheme, 'bg-gray-100': !darkTheme }">
+<html dir="{{ app()->getLocale()==='ar' ? 'rtl' : 'ltr' }}" lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="tallstackui_darkTheme()" x-bind:class="{ 'dark bg-gray-900': darkTheme, 'bg-gray-100': !darkTheme }">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Genealogy') }} @yield('title')</title>
+    <title>{{ config('app.name', app()->getLocale()) }} @yield('title') {{ app()->getLocale()}}</title>
 
     {{-- favicon --}}
     <link rel="icon" type="image/png" href="{{ asset('img/favicon/favicon-16x16.png') }}" sizes="16x16">

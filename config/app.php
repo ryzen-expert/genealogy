@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Genealogy'),
+    'name' => env('APP_NAME', 'Tree'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
 
     'timezone' => env('APP_TIMEZONE', 'UTC'),  // don't you dare change this
 
-    'timezone_display' => 'Europe/Brussels',   // default application timezone, will be overridded by authenticated user's tmezone
+    'timezone_display' => 'Asia/Aden',   // default application timezone, will be overridded by authenticated user's tmezone
 
     /*
     |--------------------------------------------------------------------------

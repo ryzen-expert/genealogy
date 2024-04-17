@@ -19,6 +19,7 @@ class UserLoggedIn
             return redirect()->intended();
         }
 
+//        dd('dd');
         return $next($request);
     }
 }
