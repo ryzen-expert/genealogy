@@ -45,6 +45,7 @@ class Person extends Component
     {
         if ($this->isDirty()) {
             $validated = $this->personForm->validate();
+//            dd($validated);
             $person = \App\Models\Person::create($validated);
 
             if ($this->personForm->image) {

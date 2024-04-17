@@ -11,7 +11,7 @@
         </div>
 
         <div class="p-4 bg-neutral-200">
-            <x-ts-errors class="mb-2" close />
+{{--            <x-ts-errors class="mb-2" close />--}}
 
             <div class="grid grid-cols-6 gap-5">
                 {{-- firstname --}}
@@ -39,10 +39,10 @@
                 </div>
 
                 {{-- gender_id --}}
-                <div class="col-span-3">
-                    <x-ts-select.styled wire:model="childForm.gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$childForm->genders()" select="label:name|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />
-                </div>
+{{--                <div class="col-span-3">--}}
+{{--                    <x-ts-select.styled wire:model="childForm.gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$childForm->genders()" select="label:name|value:id"--}}
+{{--                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />--}}
+{{--                </div>--}}
 
                 {{-- image --}}
                 <div class="col-span-6">

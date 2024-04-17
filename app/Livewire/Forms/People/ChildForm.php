@@ -36,7 +36,8 @@ class ChildForm extends Form
     // -----------------------------------------------------------------------
     protected $rules = [
         'firstname' => ['required_without:person_id', 'nullable', 'string', 'max:255'],
-        'surname' => ['required_without:person_id', 'nullable', 'string', 'max:255'],
+        'surname' => [  'nullable', 'string', 'max:255'],
+//        'surname' => ['required_without:person_id', 'nullable', 'string', 'max:255'],
         'sex' => ['required_without:person_id', 'nullable', 'in:m,f'],
         'gender_id' => ['nullable', 'integer'],
 

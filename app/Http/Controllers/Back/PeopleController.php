@@ -32,6 +32,7 @@ class PeopleController extends Controller
 
     public function show(Person $person): View
     {
+//        dd($person);
         return view('back.people.show')->with(compact('person'));
     }
 

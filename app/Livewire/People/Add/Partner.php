@@ -5,7 +5,9 @@ namespace App\Livewire\People\Add;
 use App\Livewire\Forms\People\PartnerForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
+use App\Models\Domain;
 use App\Models\Person;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -93,9 +95,12 @@ class Partner extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
-//        dd($this->person);
+//        dd(Session::get('tree_domain') ,Session::get('sub_domain') , );
+      $teams =  Domain::whereDomain(Session::get('sub_domain'))->pluck('team_id')->toArray();
+
         $persons = Person::PartnerOffset($this->person->birth_date, $this->person->birth_year)
             ->orderBy('firstname', 'asc')->orderBy('surname', 'asc')
+            ->whereIn('people.team_id',$teams)
             ->where('sex','<>',$this->person->sex)
             ->withoutGlobalScope('team')
             ->get()

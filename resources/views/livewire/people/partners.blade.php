@@ -57,13 +57,33 @@
                 <div class="flex-grow min-w-max max-w-full flex-1">
                     @if ($couple->person2_id === $person->id)
                         <x-link href="/people/{{ $couple->person_1->id }}" class="{{ $couple->person_1->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+{{--                            {{ $couple->person_1->name }}--}}
+                            @if($couple->person_2->team_id !== $person->team_id )
                             {{ $couple->person_1->name }}
+                            <br>
+                            ({{ $couple->person_1->team->name }})
+
+
+                            @else
+                                {{ $couple->person_1->name }}
+                            @endif
+
                         </x-link>
 
                         <x-ts-icon icon="{{ $couple->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
                     @else
+{{--                        @dump($couple->person_2  ,$person);--}}
                         <x-link href="/people/{{ $couple->person_2->id }}" class="{{ $couple->person_2->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
-                            {{ $couple->person_2->name }}
+
+                            @if($couple->person_2->team_id !== $person->team_id )
+                                {{ $couple->person_2->name }}
+                            <br>
+                                ({{ $couple->person_2->team->name }})
+
+
+                            @else
+                                {{ $couple->person_2->name }}
+                            @endif
                         </x-link>
 
                         <x-ts-icon icon="{{ $couple->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />

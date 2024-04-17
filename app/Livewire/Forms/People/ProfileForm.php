@@ -45,8 +45,8 @@ class ProfileForm extends Form
     public function rules()
     {
         return [
-            'firstname' => ['nullable', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'surname' => ['nullable', 'string', 'max:255'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname' => ['nullable', 'string', 'max:255'],
 

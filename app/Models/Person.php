@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Session;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 
@@ -69,13 +70,15 @@ class Person extends Model
     /* -------------------------------------------------------------------------------------------- */
     protected static function booted(): void
     {
-        static::addGlobalScope('team', function (Builder $builder) {
+        $teams =  Domain::whereDomain(Session::get('sub_domain'))->pluck('team_id')->toArray();
+        static::addGlobalScope('team', function (Builder $builder) use($teams) {
             if (! auth()) {
                 return;
             } elseif (env('GOD_MODE', 'false') && auth()->user()->is_developer) {
                 return true;
             } else {
-                $builder->where('people.team_id', auth()->user()->current_team_id);
+//                $builder->where('people.team_id', auth()->user()->current_team_id);
+                $builder->whereIn('people.team_id', $teams);
             }
         });
     }
