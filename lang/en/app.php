@@ -2,6 +2,7 @@
 
 return [
     // Menus
+    'tree' => 'Tree',
     'about' => 'About',
     'dependencies' => 'Dependencies',
     'help' => 'Help',

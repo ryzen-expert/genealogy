@@ -5,10 +5,48 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\Couple;
 use App\Models\Person;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class PeopleController extends Controller
 {
+
+    public function tree(): View
+    {
+
+//        $person = Person::whereTeamId( Auth::user()->current_team_id )->first();
+        $person = Person::findOrFail(554);
+        $descendants = collect(DB::select("
+            WITH RECURSIVE descendants AS (
+                SELECT
+                    id, firstname, surname, sex, father_id, mother_id, dob, yob, dod, yod, team_id, photo,
+                    0 AS degree,
+                    CAST(CONCAT(id, '') AS CHAR(255)) AS sequence
+                FROM people
+                WHERE deleted_at IS NULL AND id = " . $person->id . "
+
+                UNION ALL
+
+                SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dob, p.yob, p.dod, p.yod, p.team_id, p.photo,
+                    degree + 1 AS degree,
+                    CONCAT(d.sequence, ',', p.id) AS sequence
+                FROM people p, descendants d
+                WHERE deleted_at IS NULL AND (p.father_id = d.id OR p.mother_id = d.id)
+            )
+
+            SELECT * FROM descendants ORDER BY degree, dob, yob;
+        "));
+//        :level_max="$count"
+        $level_max = $descendants->max('degree') + 1;
+//        $level_max = 6;
+//        dd($descendants);
+        return view('people.tree')->with(compact('person' ,'level_max'));
+
+//        dd($person , Auth::user()->current_team_id );
+     }
+
+
     public function search(): View
     {
         return view('back.people.search');

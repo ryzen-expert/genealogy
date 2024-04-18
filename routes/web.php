@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TeamInvitationController;
+use App\Livewire\People\Descendants;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,9 @@ Route::middleware([
     // people
     // -----------------------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\PeopleController::class)->group(function () {
+
+
+        Route::get('tree', 'tree')->name('people.tree');
         Route::get('search', 'search')->name('people.search');
         Route::get('birthdays', 'birthdays')->name('people.birthdays');
 

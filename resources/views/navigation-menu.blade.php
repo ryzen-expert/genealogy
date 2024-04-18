@@ -13,10 +13,10 @@
                 {{-- navigation links --}}
                 <div class="flex flex-wrap gap-5">
                     <div class="flex items-center gap-5">
-{{--                         <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">--}}
-{{--                            <x-ts-icon icon="home" class="size-5 mr-1" />--}}
-{{--                            {{ __('app.home') }}--}}
-{{--                        </x-nav-link>--}}
+                         <x-nav-link href="{{ route('people.tree') }}" :active="request()->routeIs('people.tree')">
+                            <x-ts-icon icon="home" class="size-5 mr-1" />
+                            {{ __('app.tree') }}
+                        </x-nav-link>
 
 
                         <x-nav-link href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
