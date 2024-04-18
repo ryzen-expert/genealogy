@@ -13,7 +13,7 @@ class PageController extends Controller
     public function home(Request $request)
     {
 
-        return  Auth::user() ?to_route('people.search') : to_route('login');
+        // return  Auth::user() ?to_route('people.search') : to_route('login');
 //        return to_route('login');
         $homeFile = Jetstream::localizedMarkdownPath('home.md');
 
