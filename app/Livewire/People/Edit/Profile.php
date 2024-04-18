@@ -21,7 +21,7 @@ class Profile extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        dd('dd');
+//        dd('dd');
         $this->profileForm->person = $this->person;
 
         $this->profileForm->firstname = $this->person->firstname;
