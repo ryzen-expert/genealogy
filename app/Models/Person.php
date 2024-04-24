@@ -77,8 +77,8 @@ class Person extends Model
             } elseif (env('GOD_MODE', 'false') && auth()->user()->is_developer) {
                 return true;
             } else {
-//                $builder->where('people.team_id', auth()->user()->current_team_id);
-                $builder->whereIn('people.team_id', $teams);
+                $builder->where('people.team_id', auth()->user()->current_team_id);
+//                $builder->whereIn('people.team_id', $teams);
             }
         });
     }

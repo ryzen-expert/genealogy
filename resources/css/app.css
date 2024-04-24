@@ -28,3 +28,40 @@
   color: #FFFFFF;
   box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
 }
+
+.btm-nav {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: env(safe-area-inset-bottom);
+  height: 4rem;
+  --tw-bg-opacity: 1;
+  /*background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));*/
+  /*color: currentColor;*/
+}
+
+.btm-nav > :where(.active) {
+  border-top-width: 2px;
+  --tw-bg-opacity: 1;
+  /*background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));*/
+}
+
+
+.btm-nav > * {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-basis: 100%;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-color: currentColor;
+}

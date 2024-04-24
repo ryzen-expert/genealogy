@@ -12,11 +12,23 @@ use Illuminate\View\View;
 class PeopleController extends Controller
 {
 
-    public function tree(): View
+    public function tree()
     {
 
+        if (!Auth::user()->currentTeam()->first()) {
+
+          return  redirect()->route('choose_family');
+        }
+//        dd(Auth::user()->currentTeam()->first());
+//        dd(Auth::user()->currentTeam()->first()->root_id);
 //        $person = Person::whereTeamId( Auth::user()->current_team_id )->first();
-        $person = Person::findOrFail(554);
+//        $person = Person::findOrFail(554);
+//        $person = Person::find(Auth::user()->currentTeam()->first()->root_id);
+        $person = Person::where('team_id',Auth::user()->current_team_id)->first();
+//    dd(Auth::user()->current_team_id,$person);
+        if(!$person){
+            return to_route('people.add');
+        }
         $descendants = collect(DB::select("
             WITH RECURSIVE descendants AS (
                 SELECT
@@ -39,6 +51,7 @@ class PeopleController extends Controller
         "));
 //        :level_max="$count"
         $level_max = $descendants->max('degree') + 1;
+        $level_max = 10;
 //        $level_max = 6;
 //        dd($descendants);
         return view('people.tree')->with(compact('person' ,'level_max'));

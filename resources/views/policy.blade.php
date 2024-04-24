@@ -3,11 +3,11 @@
 @endsection
 
 <x-app-layout>
-    <x-slot name="heading">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('app.terms_of_service') }}
-        </h2>
-    </x-slot>
+{{--    <x-slot name="heading">--}}
+{{--        <h2 class="font-semibold text-gray-800 dark:text-gray-100">--}}
+{{--            {{ __('app.terms_of_service') }}--}}
+{{--        </h2>--}}
+{{--    </x-slot>--}}
 
     <div class="pb-10 dark:text-neutral-200">
         <div class="flex flex-col items-center pt-6 sm:pt-0">

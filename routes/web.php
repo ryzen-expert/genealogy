@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\TeamInvitationController;
-use App\Livewire\People\Descendants;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -12,9 +11,28 @@ use Laravel\Jetstream\Jetstream;
 // -----------------------------------------------------------------------------------------------
 Route::controller(App\Http\Controllers\Front\PageController::class)->group(function () {
     Route::get('/', 'home')->name('home');
-//    Route::get('about', 'about')->name('about');
+
+    Route::get('choose_family', \App\Livewire\FamilySelector::class)->name('choose_family');
+
+    //    Route::get('about', 'about')->name('about');
     Route::get('help', 'help')->name('help');
 });
+
+Route::get('exit', function () {
+
+    if (Auth::check()) {
+        $user = Auth::user();
+        $user = Auth::logout();
+
+        return to_route('login');
+        //        dd($user);
+        // Update the user's language preference.
+
+    }
+
+    //    dd( session()->get('locale') ,$locale);
+    return redirect()->back();
+})->name('exit');
 
 // -----------------------------------------------------------------------------------------------
 // backend routes
@@ -23,14 +41,15 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+//    'ChooseFamily'
+
 ])->group(function () {
     // -----------------------------------------------------------------------------------------------
     // people
     // -----------------------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\PeopleController::class)->group(function () {
 
-
-        Route::get('tree', 'tree')->name('people.tree');
+        Route::get('tree', 'tree')->name('people.tree')->middleware(\App\Http\Middleware\ChooseFamilyMiddleware::class);
         Route::get('search', 'search')->name('people.search');
         Route::get('birthdays', 'birthdays')->name('people.birthdays');
 
@@ -52,19 +71,19 @@ Route::middleware([
     // -----------------------------------------------------------------------------------------------
     // gedcom
     // -----------------------------------------------------------------------------------------------
-//    Route::controller(App\Http\Controllers\Back\GedcomController::class)->group(function () {
-//        Route::get('export', 'export')->name('gedcom.export');
-//        Route::get('import', 'import')->name('gedcom.import');
-//    });
+    //    Route::controller(App\Http\Controllers\Back\GedcomController::class)->group(function () {
+    //        Route::get('export', 'export')->name('gedcom.export');
+    //        Route::get('import', 'import')->name('gedcom.import');
+    //    });
 
     Route::middleware(App\Http\Middleware\IsDeveloper::class)->group(function () {
         // -----------------------------------------------------------------------------------------------
         // pages
         // -----------------------------------------------------------------------------------------------
         Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
-//            Route::get('dependencies', 'dependencies')->name('dependencies');
+            //            Route::get('dependencies', 'dependencies')->name('dependencies');
             Route::get('session', 'session')->name('session');
-//            Route::get('test', 'test')->name('test');
+            //            Route::get('test', 'test')->name('test');
 
             Route::get('persons', 'persons')->name('persons');
             Route::get('teams', 'teams')->name('teams');
@@ -101,8 +120,7 @@ Route::get('language/{locale}', function ($locale) {
         $user->save();
     }
 
-
-//    dd( session()->get('locale') ,$locale);
+    //    dd( session()->get('locale') ,$locale);
     return redirect()->back();
 });
 
