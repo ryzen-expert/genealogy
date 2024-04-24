@@ -67,29 +67,29 @@
         <!-- Home Link -->
         <a href="{{ route('people.tree') }}" class="{{ request()->routeIs('login') ? 'active bg-blue-900 text-white' : '' }}">
             <x-ts-icon icon="home" class="size-6 mr-1" />
-            <span class="btm-nav-label">{{__('Tree')}}</span>
+{{--            <span class="btm-nav-label">{{__('Tree')}}</span>--}}
         </a>
 
         <!-- Warnings Link -->
         <a href="{{ route('people.search') }}" class="{{ request()->routeIs('people.search') ? 'active bg-blue-900 text-white' : '' }}">
             <x-ts-icon icon="search" class="size-6 mr-1" />
-            <span class="btm-nav-label">  {{ __('app.search') }}</span>
+{{--            <span class="btm-nav-label">  {{ __('app.search') }}</span>--}}
         </a>
 
         <a href="{{ route('people.birthdays') }}" class="{{ request()->routeIs('people.birthdays') ? 'active bg-blue-900 text-white' : '' }}">
             <x-ts-icon icon="cake" class="size-6 mr-1" />
-            <span class="btm-nav-label"> {{ __('birthday.birthdays') }}</span>
+{{--            <span class="btm-nav-label"> {{ __('birthday.birthdays') }}</span>--}}
         </a>
 
         <!-- Statics Link -->
         <a href="{{ route('profile.show') }}" class="{{ request()->routeIs('profile.show') ? 'active bg-blue-900 text-white' : '' }}">
-             <x-ts-icon icon="id" class="size-5 mr-1" />
-            <span class="btm-nav-label">  {{ __('app.my_profile') }}</span>
+             <x-ts-icon icon="id" class="size-6 mr-1" />
+{{--            <span class="btm-nav-label">  {{ __('app.my_profile') }}</span>--}}
         </a>
         <!-- Statics Link -->
         <a href="{{ route('exit') }}" class="{{ request()->routeIs('exit') ? 'active bg-blue-900 text-white' : 'text-white bg-danger-600' }}">
-            <x-ts-icon icon="logout" class="size-5   mr-1" />
-            <span class="btm-nav-label">   {{ __('auth.logout') }}</span>
+            <x-ts-icon icon="logout" class="size-6   mr-1" />
+{{--            <span class="btm-nav-label">   {{ __('auth.logout') }}</span>--}}
         </a>
 
 
