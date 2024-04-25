@@ -2,8 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Actions\Jetstream\AddTeamMember;
 use App\Models\Team;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Jetstream\Events\AddingTeamMember;
+use Laravel\Jetstream\Jetstream;
 use Livewire\Component;
 
 class FamilySelector extends Component
@@ -15,11 +18,19 @@ class FamilySelector extends Component
     public function submit()
     {
 
+
         $user=  Auth::user();
 
         $user->current_team_id = $this->selectedFamily;
         $user->save();
-//        $user->update(['current_team_id'=>$this->selectedFamily]);
+//        $newTeamMember = Jetstream::findUserByEmailOrFail(($user->email);
+
+//        AddingTeamMember::dispatch($team, $newTeamMember);
+
+//        $team->users()->attach(
+//            $newTeamMember, ['role' => $role]
+//        );
+ //        $user->update(['current_team_id'=>$this->selectedFamily]);
 
         return to_route('people.search');
 //        Auth::user()
