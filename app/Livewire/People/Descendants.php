@@ -17,6 +17,44 @@ class Descendants extends Component
 
     public $count_max = 10;
 
+    public $zoomLevel = 2; // Default zoom level
+
+    public $scale = 0.4;
+
+    public $origin = '0% 0% 0px';
+
+    public function zoomIn()
+    {
+        $this->scale += 0.1;  // Increase scale
+    }
+
+    public function zoomOut()
+    {
+        $this->scale = max(0.2, $this->scale - 0.1);  // Decrease scale but not below 0.1
+    }
+
+    public function performAction()
+    {
+        // Your server-side logic here
+
+        // Dispatch a browser event with optional data
+        $this->zoomLevel = min(10, $this->zoomLevel + 1);
+        $this->dispatch('zoomChanged', ['zoomLevel' => $this->zoomLevel]);
+        $this->render();
+    }
+
+    //    public function zoomIn()
+    //    {
+    //        $this->zoomLevel = min(10, $this->zoomLevel + 1); // Increment zoom, max of 10
+    //        $this->dispatch('zoomChanged', ['zoomLevel' => $this->zoomLevel]);
+    //    }
+    //
+    //    public function zoomOut()
+    //    {
+    //        $this->zoomLevel = max(1, $this->zoomLevel - 1); // Decrement zoom, min of 1
+    //        $this->dispatch('zoomChanged', ['zoomLevel' => $this->zoomLevel]);
+    //    }
+
     // ------------------------------------------------------------------------------
     public function increment()
     {

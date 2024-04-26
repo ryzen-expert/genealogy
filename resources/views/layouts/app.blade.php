@@ -55,6 +55,7 @@
 
         <main class="flex-1 items-center justify-center min-h-screen mx-auto px-2 md:px-5">
             {{ $slot }}
+
         </main>
 
         {{-- footer --}}
@@ -104,7 +105,7 @@
     @stack('scripts')
     <script>
         function handleClick(event) {
-          alert('dd');
+          // alert('dd');
             if (event.target.id === 'logoutText') {
                 // Submit the form if the click was on the logout text
                 event.currentTarget.form.submit();

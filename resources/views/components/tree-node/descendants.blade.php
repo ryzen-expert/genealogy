@@ -10,6 +10,7 @@
     });
 @endphp
 
+
 <li>
     @if ($person)
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">

@@ -51,7 +51,7 @@ class PeopleController extends Controller
         "));
 //        :level_max="$count"
         $level_max = $descendants->max('degree') + 1;
-        $level_max = 10;
+//        $level_max = 10;
 //        $level_max = 6;
 //        dd($descendants);
         return view('people.tree')->with(compact('person' ,'level_max'));
