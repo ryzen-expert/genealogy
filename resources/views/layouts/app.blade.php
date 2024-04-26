@@ -36,7 +36,7 @@
 {{--        && \Illuminate\Support\Facades\Auth::user()->is_developer/--}}
 {{--        @if(!in_array(\Illuminate\Support\Facades\Route::currentRouteName(),['login','register' ,'policy.show','terms.show']))--}}
         @if(\Illuminate\Support\Facades\Auth::check() &&  \Illuminate\Support\Facades\Auth::user()->is_developer )
-            You are developer
+
          @include('layouts.partials.header')
         @endif
         {{-- offcanvas --}}

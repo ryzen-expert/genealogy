@@ -49,17 +49,52 @@
                 @if (\Illuminate\Support\Facades\Session::get('tree_domain')  || \Illuminate\Support\Facades\Session::get('sub_domain') === env('ADMIN_URL') )
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                        href="{{ route('password.request') }}">
-                        {{ __('auth.forgot_password') }}
-                    </a>
-                @endif
+
+
+{{--                @if (Route::has('password.request'))--}}
+{{--                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"--}}
+{{--                        href="{{ route('password.request') }}">--}}
+{{--                        {{ __('auth.forgot_password') }}--}}
+{{--                    </a>--}}
+{{--                @endif--}}
 
                 <x-ts-button color="primary" class="ms-4">
                     {{ __('auth.login') }}
                 </x-ts-button>
             </div>
+
+
+                <div class="flex items-center justify-start mt-4">
+
+
+                    @if (Route::has('password.request'))
+                        <a class="underline text-sm  px-3.5 text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                           href="{{ route('password.request') }}">
+                            {{ __('auth.forgot_password') }}
+                        </a>
+                    @endif
+
+
+
+
+
+
+
+
+
+
+                        <a class="underline px-3.5 text-sm text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                           href="{{ route('register') }}">
+{{--                            <x-ts-button color="amber"  outline class="ms-4"">--}}
+                            {{ __('auth.register') }}
+{{--                            </x-ts-button>--}}
+                        </a>
+
+
+
+
+                </div>
+
             @endif
         </form>
     </x-authentication-card>

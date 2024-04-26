@@ -26,7 +26,7 @@
             <div class="min-w-100  md:max-w-max mx-auto  flex flex-col flex-grow gap-5 overflow-x-auto " >
 {{--                <livewire:people.ancestors :person="$person" />--}}
 
-                <livewire:people.descendants :person="$person"  :count="$level_max" />
+                <livewire:people.descendants :person="$person"  :count="$level_max"  lazy />
             </div>
         </div>
 

@@ -51,6 +51,8 @@ return [
     */
 
     'lazy_placeholder' => null,
+//    'lazy_placeholder' => 'livewire.loading',
+
 
     /*
     |---------------------------------------------------------------------------
@@ -156,4 +158,6 @@ return [
     */
 
     'pagination_theme' => 'tailwind',
+
+
 ];
