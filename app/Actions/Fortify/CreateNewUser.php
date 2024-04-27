@@ -55,8 +55,8 @@ class CreateNewUser implements CreatesNewUsers
     protected function createTeam(User $user): void
     {
 
-//        $user->current_team_id  = Session::get('tree_domain')?->team_id ?? null;
-//        $user->save();
+        $user->current_team_id  = Session::get('tree_domain')?->team_id ?? null;
+        $user->save();
 //        $user->ownedTeams()->save(Team::forceCreate([
 //            'user_id' => $user->id,
 //            'name' => $user->name . "'s Family",

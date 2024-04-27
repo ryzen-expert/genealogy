@@ -22,8 +22,8 @@ class PeopleController extends Controller
 //        dd(Auth::user()->currentTeam()->first());
 //        dd(Auth::user()->currentTeam()->first()->root_id);
 //        $person = Person::whereTeamId( Auth::user()->current_team_id )->first();
-        $person = Person::findOrFail(554);
-//        $person = Person::find(Auth::user()->currentTeam()->first()->root_id);
+//        $person = Person::findOrFail(554);
+        $person = Person::find(Auth::user()->currentTeam()->first()->root_id);
 //        $person = Person::where('team_id',Auth::user()->current_team_id)->first();
 //    dd(Auth::user()->current_team_id,$person);
         if(!$person){

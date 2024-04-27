@@ -8,17 +8,13 @@
 
 
 
-
-
-
-
-
      <div class="flex flex-wrap gap-5">
 
 
 
+         <div class="w-full py-5 space-y-5 xoverflow-x-auto">
+        <livewire:family-selector/>
 
-    <div class="w-full py-5 space-y-5 xoverflow-x-auto">
         <livewire:people.heading :person="$person" />
 
 

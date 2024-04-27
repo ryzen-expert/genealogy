@@ -49,7 +49,7 @@ Route::middleware([
     // -----------------------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\PeopleController::class)->group(function () {
 
-        Route::get('tree', 'tree')->name('people.tree')->middleware(\App\Http\Middleware\ChooseFamilyMiddleware::class);
+        Route::get('tree', 'tree')->name('people.tree');
         Route::get('search', 'search')->name('people.search');
         Route::get('birthdays', 'birthdays')->name('people.birthdays');
 
