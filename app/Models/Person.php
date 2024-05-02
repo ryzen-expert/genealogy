@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 
@@ -21,6 +21,12 @@ class Person extends Model
 
     protected $fillable = [
         'firstname',
+
+        'created_by',
+        'father_name',
+        'first_grandfather',
+        'second_grandfather',
+        'third_grandfather',
         'surname',
         'birthname',
         'nickname',
@@ -70,17 +76,27 @@ class Person extends Model
     /* -------------------------------------------------------------------------------------------- */
     protected static function booted(): void
     {
-        $teams =  Domain::whereDomain(Session::get('sub_domain'))->pluck('team_id')->toArray();
-        static::addGlobalScope('team', function (Builder $builder) use($teams) {
+
+        // Automatically set the created_by field to the current user's id
+        static::creating(function ($person) {
+            if (Auth::check()) {
+                $person->created_by = Auth::id();
+            }
+        });
+
+        //        dd( domainFamilies() ,domainFamiliesIds());
+        static::addGlobalScope('team', function (Builder $builder) {
             if (! auth()) {
                 return;
             } elseif (env('GOD_MODE', 'false') && auth()->user()->is_developer) {
                 return true;
             } else {
-                $builder->where('people.team_id', auth()->user()->current_team_id);
-//                $builder->whereIn('people.team_id', $teams);
+                //                $builder->where('people.team_id', auth()->user()->current_team_id);
+
+                $builder->whereIn('people.team_id', domainFamiliesIds());
             }
         });
+
     }
 
     /* -------------------------------------------------------------------------------------------- */

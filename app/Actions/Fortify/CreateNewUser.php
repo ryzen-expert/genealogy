@@ -23,11 +23,12 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-//        dd($input ,Session::get('tree_domain'));
+        //        dd($input ,domainFamilies() ,array_keys(domainFamilies()));
         Validator::make($input, [
             'firstname' => ['nullable', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'family' => ['required', Rule::in(array_keys(domainFamilies()))],
             'language' => ['required', Rule::in(array_values(config('app.available_locales')))],
             'timezone' => ['required', Rule::in(array_values(timezone_identifiers_list()))],
             'password' => $this->passwordRules(),
@@ -41,26 +42,38 @@ class CreateNewUser implements CreatesNewUsers
                 'email' => $input['email'],
                 'language' => $input['language'],
                 'timezone' => $input['timezone'],
+                'current_team_id' => $input['family'],
                 'password' => Hash::make($input['password']),
 
-            ]), function (User $user) {
-                $this->createTeam($user);
+            ]), function (User $user) use ($input) {
+
+                $user->current_team_id = $input['family'];
+                $team = Team::find($input['family']);
+                $user->save();
+
+                $newTeamMember = Jetstream::findUserByEmailOrFail($user->email);
+
+                $team->users()->attach(
+                    $newTeamMember, ['role' => 'new_family_member']
+                );
+
+                //                $this->createTeam($user);
             });
         });
     }
 
     /**
-     * Create a personal team for the user.
+     * Set User Family  a personal team for the user.
      */
     protected function createTeam(User $user): void
     {
 
-        $user->current_team_id  = Session::get('tree_domain')?->team_id ?? null;
-        $user->save();
-//        $user->ownedTeams()->save(Team::forceCreate([
-//            'user_id' => $user->id,
-//            'name' => $user->name . "'s Family",
-//            'personal_team' => true,
-//        ]));
+        //        $user->current_team_id  = Session::get('tree_domain')?->team_id ?? null;
+        //        $user->save();
+        //        $user->ownedTeams()->save(Team::forceCreate([
+        //            'user_id' => $user->id,
+        //            'name' => $user->name . "'s Family",
+        //            'personal_team' => true,
+        //        ]));
     }
 }

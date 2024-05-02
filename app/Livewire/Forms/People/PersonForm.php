@@ -24,6 +24,14 @@ class PersonForm extends Form
 
     public $surname = null;
 
+    public $father_name = null;
+
+    public $first_grandfather = null;
+
+    public $second_grandfather = null;
+
+    public $third_grandfather = null;
+
     public $birthname = null;
 
     public $nickname = null;
@@ -55,6 +63,10 @@ class PersonForm extends Form
     {
         return $rules = [
             'firstname' => ['required', 'string', 'max:255'],
+            'father_name' => ['required', 'string', 'max:255'],
+            'first_grandfather' => ['required', 'string', 'max:255'],
+            'second_grandfather' => ['required', 'string', 'max:255'],
+            'third_grandfather' => ['required', 'string', 'max:255'],
             'surname' => ['nullable', 'string', 'max:255'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname' => ['nullable', 'string', 'max:255'],
@@ -93,6 +105,10 @@ class PersonForm extends Form
     {
         return [
             'firstname' => __('person.firstname'),
+            'father_name' => __('person.father_name'),
+            'first_grandfather' => __('person.first_grandfather'),
+            'second_grandfather' => __('person.second_grandfather'),
+            'third_grandfather' => __('person.third_grandfather'),
             'surname' => __('person.surname'),
             'birthname' => __('person.birthname'),
             'nickname' => __('person.nickname'),

@@ -77,6 +77,22 @@
                 </div>
             </div>
 
+
+            <div class="md:flex md:items-center mt-1">
+                <div class="md:w-1/3">
+                    <x-label for="family" value="{{ __(' family') }} :" />
+                </div>
+                <div class="md:w-2/3">
+                    <select  class="block w-full rounded" name="family" required>
+                        <option value="">{{ __('choose your family') }}</option>
+                        @foreach (domainFamilies() as $id => $family)
+                            <option value="{{ $id }}">{{ $family }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
 
             <div class="md:flex md:items-center mt-2">

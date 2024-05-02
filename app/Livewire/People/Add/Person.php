@@ -28,6 +28,11 @@ class Person extends Component
         $this->personForm->birthname = null;
         $this->personForm->nickname = null;
 
+        $this->personForm->father_name = null;
+        $this->personForm->first_grandfather = null;
+        $this->personForm->second_grandfather = null;
+        $this->personForm->third_grandfather = null;
+
         $this->personForm->sex = null;
         $this->personForm->gender_id = null;
 
@@ -45,7 +50,7 @@ class Person extends Component
     {
         if ($this->isDirty()) {
             $validated = $this->personForm->validate();
-//            dd($validated);
+            //            dd($validated);
             $person = \App\Models\Person::create($validated);
 
             if ($this->personForm->image) {
@@ -98,6 +103,11 @@ class Person extends Component
     {
         return
         $this->personForm->firstname != null or
+        $this->personForm->father_name != null or
+        $this->personForm->first_grandfather != null or
+        $this->personForm->second_grandfather != null or
+        $this->personForm->third_grandfather != null or
+
         $this->personForm->surname != null or
         $this->personForm->birthname != null or
         $this->personForm->nickname != null or

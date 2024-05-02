@@ -81,8 +81,6 @@ class JetstreamServiceProvider extends ServiceProvider
             return view('auth.login');
         });
 
-
-
         // register new LoginResponse
         $this->app->singleton(
             \Laravel\Fortify\Contracts\LoginResponse::class,
@@ -130,7 +128,7 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::role('editor', 'Editor', [
             'person:create',
             'person:read',
-            'person:update', 
+            'person:update',
             'couple:create',
             'couple:read',
             'couple:update',
@@ -141,5 +139,15 @@ class JetstreamServiceProvider extends ServiceProvider
 
             'couple:read',
         ])->description('Members have the ability to read people.');
+
+        Jetstream::role('new_family_member', 'new_family_member', [
+//              'person:create',
+//            'person:read',
+//            'person:update',
+//            'couple:create',
+//            'couple:read',
+//            'couple:update',
+        ])->description('new_family_member have the ability to read people.');
+
     }
 }

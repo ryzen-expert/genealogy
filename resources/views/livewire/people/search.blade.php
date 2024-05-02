@@ -17,12 +17,22 @@
                     </div>
 
                     <div class="flex-grow max-w-full flex-1 text-end">
-                        @if (auth()->user()->hasPermission('person:create'))
+
+                         @if (auth()->user()->hasPermission('person:create'))
                             <x-ts-button href="/people/add" color="emerald" class="text-sm">
                                 <x-ts-icon icon="user-plus" class="me-2" />
                                 {{ __('person.add_person') }}
                             </x-ts-button>
                         @endif
+
+
+                             @if ( auth()->user()->hasRole(\App\Role::NewFamilyMember) && \App\Models\Person::where('created_by',\Illuminate\Support\Facades\Auth::id())->doesntExist() )
+                                 <x-ts-button href="/people/add" color="emerald" class="text-sm">
+                                     <x-ts-icon icon="user-plus" class="me-2" />
+                                     {{ __('person.add_person') }}
+                                 </x-ts-button>
+                             @endif
+
                     </div>
 
 

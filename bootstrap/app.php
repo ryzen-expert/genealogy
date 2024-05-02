@@ -16,13 +16,18 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append : [
 
             App\Http\Middleware\ChooseFamilyMiddleware::class,
+//            App\Http\Middleware\CheckNewFamilyMemberRole::class,
             App\Http\Middleware\Localization::class,
             App\Http\Middleware\SetLocale::class,
             App\Http\Middleware\SubdomainMiddleware::class,
             App\Http\Middleware\LogAllRequests::class,
+
         ]);
 
-        $middleware->alias([]);
+        $middleware->alias([
+
+            'check.newfamilymember' => \App\Http\Middleware\CheckNewFamilyMemberRole::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
