@@ -15,20 +15,28 @@ class PeopleController extends Controller
     public function tree()
     {
 
-//        if (! Auth::user()->currentTeam()->first()) {
-//
-//            return redirect()->route('choose_family');
-//        }
-        //        dd(Auth::user()->currentTeam()->first());
+        if (Auth::user()->currentTeam->id !== 19 && !Auth::user()->is_developer) {
+
+            return redirect('search')->dangerBanner('You are not allowed to perform this action.');
+            //            return redirect()->route('choose_family');
+        }
+
+
+        if(!Auth::user()->currentTeam->root_id){
+
+            return redirect('search')->dangerBanner('Root not Found.');
+
+        }
+        //                dd(Auth::user()->currentTeam ,Auth::user()->teams);
         //        dd(Auth::user()->currentTeam()->first()->root_id);
         //        $person = Person::whereTeamId( Auth::user()->current_team_id )->first();
-                $person = Person::findOrFail(554);
-//        $person = Person::find(Auth::user()->currentTeam()->first()->root_id);
-//        //        $person = Person::where('team_id',Auth::user()->current_team_id)->first();
-//        //    dd(Auth::user()->current_team_id,$person);
-//        if (! $person) {
-//            return to_route('people.add');
-//        }
+        //                $person = Person::findOrFail(554);
+        $person = Person::find(Auth::user()->currentTeam->root_id);
+        //        //        $person = Person::where('team_id',Auth::user()->current_team_id)->first();
+        //        //    dd(Auth::user()->current_team_id,$person);
+        //        if (! $person) {
+        //            return to_route('people.add');
+        //        }
         $descendants = collect(DB::select("
             WITH RECURSIVE descendants AS (
                 SELECT
@@ -63,7 +71,7 @@ class PeopleController extends Controller
     public function search()
     {
         if (auth()->user()->hasRole(Role::NewFamilyMember) && Person::where('created_by', Auth::id())->doesntExist()) {
-            return  to_route('people.add');
+            return to_route('people.add');
         }
 
         return view('back.people.search');

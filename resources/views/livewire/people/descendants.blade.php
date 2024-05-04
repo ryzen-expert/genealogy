@@ -11,14 +11,47 @@
         </div>
         <!-- sub left -->
         <div class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-16   flex  p-2 hover:p-3   scale-100   text-white">
-            <x-ts-button.circle centralized icon="zoom-in" class="mx-10" color="orange" lg wire:click="zoomIn"/>
+{{--            <x-ts-button.circle centralized icon="zoom-in" class="mx-10" color="orange" lg wire:click="zoomIn"/>--}}
+
+
+            @if ($count === $count_min)
+
+                <x-ts-button.circle centralized icon="minus" class="mx-10" color="orange" lg wire:click="decrement" disabled/>
+
+{{--                <x-ts-button square xs color="danger" class="rounded-l border-0" wire:click="decrement" disabled>--}}
+{{--                    <x-ts-icon icon="minus" class="size-5" />--}}
+{{--                </x-ts-button>--}}
+            @else
+
+                <x-ts-button.circle centralized icon="minus" class="mx-10" color="orange" lg wire:click="decrement"  />
+
+{{--                <x-ts-button square xs color="secondary" class="rounded-l border-0" wire:click="decrement">--}}
+{{--                    <x-ts-icon icon="minus" class="size-5" />--}}
+{{--                </x-ts-button>--}}
+            @endif
+
         </div>
 
 
         <!-- sub top -->
         <div class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16  flex  p-2 hover:p-3   text-white">
 
-            <x-ts-button.circle centralized icon="zoom-out"   color="orange" lg wire:click="zoomOut"/>
+{{--            <x-ts-button.circle centralized icon="zoom-out"   color="orange" lg wire:click="zoomOut"/>--}}
+
+            @if ($count === $count_max)
+
+               <x-ts-button.circle centralized icon="plus"   color="orange" lg wire:click="increment" disabled/>
+
+
+            @else
+
+                <x-ts-button.circle centralized icon="plus"   color="orange" lg wire:click="increment"/>
+
+{{--                <x-ts-button square xs color="secondary" class="rounded-r border-0" wire:click="zoomOut">--}}
+{{--                    <x-ts-icon icon="plus" class="size-5" />--}}
+{{--                </x-ts-button>--}}
+            @endif
+
 
         </div>
         <!-- sub middle -->
@@ -150,6 +183,7 @@
 
 
             {{--            app()->getLocale()==='ar' ? 'tree-rtl' : 'tree-ltr'--}}
+{{--            <div class="tree-ltr"  id="zoomableImage" style="transform: scale({{ $scale }}); transform-origin: {{ $origin }};">--}}
             <div class="tree-ltr"  id="zoomableImage" style="transform: scale({{ $scale }}); transform-origin: {{ $origin }};">
                 <ul>
 {{--                    @dump($descendants);--}}

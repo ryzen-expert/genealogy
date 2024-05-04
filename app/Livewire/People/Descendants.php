@@ -17,9 +17,9 @@ class Descendants extends Component
 
     public $count_max = 10;
 
-    public $zoomLevel = 2; // Default zoom level
+    public $zoomLevel = 1; // Default zoom level
 
-    public $scale = 0.4;
+    public $scale = 0.5;
 
     public $origin = '0% 0% 0px';
 
