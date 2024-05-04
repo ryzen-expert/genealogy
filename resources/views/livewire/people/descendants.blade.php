@@ -184,7 +184,7 @@
 
             {{--            app()->getLocale()==='ar' ? 'tree-rtl' : 'tree-ltr'--}}
 {{--            <div class="tree-ltr"  id="zoomableImage" style="transform: scale({{ $scale }}); transform-origin: {{ $origin }};">--}}
-            <div class="tree-ltr"  id="zoomableImage" style="transform: scale({{ $scale }}); transform-origin: {{ $origin }};">
+            <div class="tree-ltr"  id="zoomableImage"  >
                 <ul>
 {{--                    @dump($descendants);--}}
                     <x-tree-node.descendants :person="$person" :descendants="$descendants" :level_max="$count" />

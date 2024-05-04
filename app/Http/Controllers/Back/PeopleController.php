@@ -58,7 +58,7 @@ class PeopleController extends Controller
             SELECT * FROM descendants ORDER BY degree, dob, yob;
         "));
         //        :level_max="$count"
-        $level_max = $descendants->max('degree') + 1;
+        $level_max = $descendants->max('degree') - 3;
 
         //        $level_max = 10;
         //        $level_max = 6;
@@ -70,8 +70,14 @@ class PeopleController extends Controller
 
     public function search()
     {
-        if (auth()->user()->hasRole(Role::NewFamilyMember) && Person::where('created_by', Auth::id())->doesntExist()) {
+        if (auth()->user()->hasRole(Role::NewFamilyMember) && Person::where('created_by', Auth::id())->doesntExist() && !auth()->user()->is_developer) {
             return to_route('people.add');
+        }
+
+        if (auth()->user()->hasRole(Role::NewFamilyMember) && Person::where('created_by', Auth::id())->exists()) {
+
+           $person = Person::where('created_by', Auth::id())->first();
+            return to_route('people.show', $person->id);
         }
 
         return view('back.people.search');
