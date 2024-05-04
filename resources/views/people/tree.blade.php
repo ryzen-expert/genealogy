@@ -13,7 +13,7 @@
 
 
          <div class="w-full py-5 space-y-5 xoverflow-x-auto">
-        <livewire:family-selector/>
+{{--        <livewire:family-selector/>--}}
 
         <livewire:people.heading :person="$person" />
 

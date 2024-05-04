@@ -106,7 +106,10 @@ class User extends Authenticatable
     {
         return $this->hasTeamRole($this->currentTeam, $role->value);
     }
-
+//    public function CanP(Role $role): bool
+//    {
+//        return $this->hasTeamRole($this->currentTeam, $role->value);
+//    }
 
 
     /* -------------------------------------------------------------------------------------------- */

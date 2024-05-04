@@ -85,7 +85,7 @@
                 <div class="md:w-2/3">
                     <select  class="block w-full rounded" name="family" required>
                         <option value="">{{ __('choose your family') }}</option>
-                        @foreach (domainFamilies() as $id => $family)
+                        @foreach (AllFamilies() as $id => $family)
                             <option value="{{ $id }}">{{ $family }}</option>
                         @endforeach
                     </select>

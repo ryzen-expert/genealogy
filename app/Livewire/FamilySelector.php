@@ -35,8 +35,8 @@ class FamilySelector extends Component
 
         $user = Auth::user();
 
-        $user->current_team_id = $this->selectedFamily;
-        $user->save();
+//        $user->current_team_id = $this->selectedFamily;
+//        $user->save();
 
 
               $this->redirect(route('people.tree'),true);

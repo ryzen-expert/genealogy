@@ -5,30 +5,30 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\Couple;
 use App\Models\Person;
+use App\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class PeopleController extends Controller
 {
-
     public function tree()
     {
 
-        if (!Auth::user()->currentTeam()->first()) {
-
-          return  redirect()->route('choose_family');
-        }
-//        dd(Auth::user()->currentTeam()->first());
-//        dd(Auth::user()->currentTeam()->first()->root_id);
-//        $person = Person::whereTeamId( Auth::user()->current_team_id )->first();
-//        $person = Person::findOrFail(554);
-        $person = Person::find(Auth::user()->currentTeam()->first()->root_id);
-//        $person = Person::where('team_id',Auth::user()->current_team_id)->first();
-//    dd(Auth::user()->current_team_id,$person);
-        if(!$person){
-            return to_route('people.add');
-        }
+//        if (! Auth::user()->currentTeam()->first()) {
+//
+//            return redirect()->route('choose_family');
+//        }
+        //        dd(Auth::user()->currentTeam()->first());
+        //        dd(Auth::user()->currentTeam()->first()->root_id);
+        //        $person = Person::whereTeamId( Auth::user()->current_team_id )->first();
+                $person = Person::findOrFail(554);
+//        $person = Person::find(Auth::user()->currentTeam()->first()->root_id);
+//        //        $person = Person::where('team_id',Auth::user()->current_team_id)->first();
+//        //    dd(Auth::user()->current_team_id,$person);
+//        if (! $person) {
+//            return to_route('people.add');
+//        }
         $descendants = collect(DB::select("
             WITH RECURSIVE descendants AS (
                 SELECT
@@ -49,26 +49,30 @@ class PeopleController extends Controller
 
             SELECT * FROM descendants ORDER BY degree, dob, yob;
         "));
-//        :level_max="$count"
+        //        :level_max="$count"
         $level_max = $descendants->max('degree') + 1;
-//        $level_max = 10;
-//        $level_max = 6;
-//        dd($descendants);
-        return view('people.tree')->with(compact('person' ,'level_max'));
 
-//        dd($person , Auth::user()->current_team_id );
-     }
+        //        $level_max = 10;
+        //        $level_max = 6;
+        //        dd($descendants);
+        return view('people.tree')->with(compact('person', 'level_max'));
 
+        //        dd($person , Auth::user()->current_team_id );
+    }
 
-    public function search(): View
+    public function search()
     {
+        if (auth()->user()->hasRole(Role::NewFamilyMember) && Person::where('created_by', Auth::id())->doesntExist()) {
+            return  to_route('people.add');
+        }
+
         return view('back.people.search');
     }
 
     public function birthdays($months = 2): View
     {
         $people = Person::whereNotNull('dob')
-            ->where('team_id',auth()->user()->current_team_id)
+            ->where('team_id', auth()->user()->current_team_id)
             ->whereRaw('CASE WHEN MONTH(NOW()) +' . $months . " > 12 THEN date_format(dob, '%m-%d') >= date_format(NOW(), '%m-%d') OR date_format(dob, '%m-%d') <= date_format(NOW() + INTERVAL " . $months . " MONTH, '%m-%d') ELSE date_format(dob, '%m-%d') >= date_format(NOW(), '%m-%d') AND date_format(dob, '%m-%d') <= date_format(NOW() + INTERVAL " . $months . " MONTH, '%m-%d') END")
             ->orderByRaw("(case when date_format(dob, '%m-%d') >= date_format(now(), '%m-%d') then 0 else 1 end), date_format(dob, '%m-%d')")
             ->get();
@@ -83,7 +87,7 @@ class PeopleController extends Controller
 
     public function show(Person $person): View
     {
-//        dd($person);
+        //        dd($person);
         return view('back.people.show')->with(compact('person'));
     }
 

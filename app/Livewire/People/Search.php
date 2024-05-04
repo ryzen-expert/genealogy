@@ -3,6 +3,7 @@
 namespace App\Livewire\People;
 
 use App\Models\Person;
+use App\Role;
 use Livewire\Attributes\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -30,15 +31,25 @@ class Search extends Component
     {
         $people_db = Person::count();
 
-        if ($this->search) {
+        if ($this->search  ) {
             $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
                 ->search($this->search)
                 ->where('team_id',auth()->user()->current_team_id)
+//                ->when(auth()->user()->hasRole(Role::NewFamilyMember), function ($query) {
+//
+//                    $query->where('created_by',auth()->user()->id);
+//                })
+//                ->when(auth()->user()->hasRole(Role::Administrator), function ($query) {
+//
+//                    $query->where('team_id','>',auth()->user()->current_team_id);
+//                })
                 ->orderBy('firstname')->orderBy('surname') // reverse order when application goes in production
                 ->paginate($this->perpage);
         } else {
             $people = collect([]);
         }
+
+
 
         return view('livewire.people.search')->with(compact('people_db', 'people'));
     }

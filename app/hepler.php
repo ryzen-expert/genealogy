@@ -30,4 +30,17 @@ if (! function_exists('domainFamiliesIds')) {
 
     }
 
+
+    if (! function_exists('AllFamilies')) {
+
+        function AllFamilies(): array
+        {
+
+//            $teams = Domain::whereDomain(Session::get('sub_domain'))->pluck('team_id')->toArray();
+
+            return Team::where('id','>=' ,19)->pluck('name', 'id')->toArray();
+
+        }
+
+    }
 }

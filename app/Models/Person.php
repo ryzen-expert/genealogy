@@ -91,7 +91,7 @@ class Person extends Model
             } elseif (env('GOD_MODE', 'false') && auth()->user()->is_developer) {
                 return true;
             } else {
-                //                $builder->where('people.team_id', auth()->user()->current_team_id);
+//                $builder->where('people.team_id', auth()->user()->current_team_id);
 
                 $builder->whereIn('people.team_id', domainFamiliesIds());
             }
@@ -154,7 +154,7 @@ class Person extends Model
     /* -------------------------------------------------------------------------------------------- */
     protected function getNameAttribute(): ?string
     {
-        return implode(' ', array_filter([$this->firstname, $this->surname]));
+        return implode(' ', array_filter([$this->firstname, $this->father_name ,$this->first_grandfather,$this->second_grandfather,$this->third_grandfather]));
     }
 
     protected function getAgeAttribute(): ?int

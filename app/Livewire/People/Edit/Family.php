@@ -6,6 +6,7 @@ use App\Livewire\Forms\People\FamilyForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -60,20 +61,32 @@ class Family extends Component
             ->OlderThan($this->person->birth_date, $this->person->birth_year)
             ->orderBy('firstname')->orderBy('surname')
             ->get();
-
+//        dd(Auth::user()->current_team_id);
         $fathers = $persons->where('sex', 'm')->map(function ($p) {
+
+//            dd( $p,  $p?->team ,$p?->team?->name);
+            if(Auth::user()->current_team_id === $p->team_id){
             return [
                 'id' => $p->id,
                 'name' => $p->name . ' (' . $p->birth_formatted . ')',
             ];
-        })->values()->toArray();
+            }
+        })->filter()->values()->toArray();
 
+//        dd($fathers);
         $mothers = $persons->where('sex', 'f')->map(function ($p) {
             return [
                 'id' => $p->id,
-                'name' => $p->name . ' (' . $p->birth_formatted . ')',
+                'team' => $p->team_id,
+                 'description' => __('team.team') .' '. $p->team->name,
+                'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
+
+//                'id' => $p->id,
+//                'name' => $p->name . ' (' . $p->birth_formatted . ')' .''.$p?->team?->name,
             ];
         })->values()->toArray();
+
+
 
         $parents = Couple::with(['person_1', 'person_2'])
             ->OlderThan($this->person->birth_date)

@@ -5,7 +5,7 @@
                 {{ __('person.partners') }} <x-ts-badge color="emerald" text="{{ count($person->couples) }}" />
             </div>
 
-            @if (auth()->user()->hasPermission('couple:create'))
+            @if (auth()->user()->hasPermission('couple:create') || \Illuminate\Support\Facades\Auth::id() === $person->created_by )
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-partner">
