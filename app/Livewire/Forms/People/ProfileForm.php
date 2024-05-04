@@ -23,6 +23,16 @@ class ProfileForm extends Form
 
     public $nickname = null;
 
+
+    public $father_name = null;
+
+    public $first_grandfather = null;
+
+    public $second_grandfather = null;
+
+    public $third_grandfather = null;
+
+
     public $sex = null;
 
     public $gender_id = null;

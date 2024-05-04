@@ -78,6 +78,28 @@
                     <td class="pr-2 border-t-2 border-r-2">{{ __('person.firstname') }}</td>
                     <td class="pl-2 border-t-2">{{ $person->firstname }}</td>
                 </tr>
+
+
+                <tr>
+                    <td class="pr-2 border-t-2 border-r-2">{{ __('person.father_name') }}</td>
+                    <td class="pl-2 border-t-2">{{ $person->father_name }}</td>
+                </tr>
+
+                <tr>
+                    <td class="pr-2 border-t-2 border-r-2">{{ __('person.first_grandfather') }}</td>
+                    <td class="pl-2 border-t-2">{{ $person->first_grandfather }}</td>
+                </tr>
+
+                <tr>
+                    <td class="pr-2 border-t-2 border-r-2">{{ __('person.second_grandfather') }}</td>
+                    <td class="pl-2 border-t-2">{{ $person->second_grandfather }}</td>
+                </tr>
+
+                <tr>
+                    <td class="pr-2 border-t-2 border-r-2">{{ __('person.third_grandfather') }}</td>
+                    <td class="pl-2 border-t-2">{{ $person->third_grandfather }}</td>
+                </tr>
+
                 <tr>
                     <td class="pr-2 border-r-2">{{ __('person.surname') }}</td>
                     <td class="pl-2">{{ $person->surname }}</td>
