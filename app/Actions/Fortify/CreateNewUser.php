@@ -28,7 +28,7 @@ class CreateNewUser implements CreatesNewUsers
             'firstname' => ['nullable', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'family' => ['required', Rule::in(array_keys(domainFamilies()))],
+            'family' => ['required', Rule::in(array_keys(AllFamilies()))],
             'language' => ['required', Rule::in(array_values(config('app.available_locales')))],
             'timezone' => ['required', Rule::in(array_values(timezone_identifiers_list()))],
             'password' => $this->passwordRules(),
