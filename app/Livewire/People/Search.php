@@ -29,21 +29,22 @@ class Search extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
-        $people_db = Person::count();
-
+        $people_db = Person::where('team_id',auth()->user()->current_team_id)->count();
+//        dd($people_db);
         if ($this->search  ) {
             $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
                 ->search($this->search)
                 ->where('team_id',auth()->user()->current_team_id)
-//                ->when(auth()->user()->hasRole(Role::NewFamilyMember), function ($query) {
-//
-//                    $query->where('created_by',auth()->user()->id);
-//                })
+                ->when(auth()->user()->hasRole(Role::NewFamilyMember) || !auth()->user()->is_developer  , function ($query) {
+
+                    $query->where('created_by',auth()->user()->id);
+                })
 //                ->when(auth()->user()->hasRole(Role::Administrator), function ($query) {
 //
 //                    $query->where('team_id','>',auth()->user()->current_team_id);
 //                })
-                ->orderBy('firstname')->orderBy('surname') // reverse order when application goes in production
+                ->orderBy('firstname')
+                ->orderBy('surname') // reverse order when application goes in production
                 ->paginate($this->perpage);
         } else {
             $people = collect([]);
