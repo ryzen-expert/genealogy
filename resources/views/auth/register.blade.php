@@ -144,7 +144,7 @@
 
 {{--            @dump( \Illuminate\Support\Facades\Session::get('sub_domain') ,env('ADMIN_URL') ,  \Illuminate\Support\Facades\Session::get('sub_domain') == env('ADMIN_URL'))--}}
 
-            @if (\Illuminate\Support\Facades\Session::get('tree_domain')  && \Illuminate\Support\Facades\Session::get('sub_domain') !== env('ADMIN_URL') )
+{{--            @if (\Illuminate\Support\Facades\Session::get('tree_domain')  && \Illuminate\Support\Facades\Session::get('sub_domain') !== env('ADMIN_URL') )--}}
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                     {{ __('auth.already_registered') }}?
@@ -154,7 +154,7 @@
                     {{ __('auth.register') }}
                 </x-ts-button>
             </div>
-            @endif
+{{--            @endif--}}
         </form>
     </x-authentication-card>
 

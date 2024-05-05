@@ -46,7 +46,7 @@
             </div>
 
 {{--            @if (\Illuminate\Support\Facades\Session::get('tree_domain'))--}}
-                @if (\Illuminate\Support\Facades\Session::get('tree_domain')  || \Illuminate\Support\Facades\Session::get('sub_domain') === env('ADMIN_URL') )
+{{--                @if (\Illuminate\Support\Facades\Session::get('tree_domain')  || \Illuminate\Support\Facades\Session::get('sub_domain') === env('ADMIN_URL') )--}}
 
             <div class="flex items-center justify-end mt-4">
 
@@ -95,7 +95,7 @@
 
                 </div>
 
-            @endif
+{{--            @endif--}}
         </form>
     </x-authentication-card>
 </x-app-layout>

@@ -144,9 +144,9 @@ class JetstreamServiceProvider extends ServiceProvider
               'person:create',
             'person:read',
             'person:update',
-//            'couple:create',
-//            'couple:read',
-//            'couple:update',
+            'couple:create',
+            'couple:read',
+            'couple:update',
         ])->description('new_family_member have the ability to read people.');
 
     }

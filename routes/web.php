@@ -12,7 +12,7 @@ use Laravel\Jetstream\Jetstream;
 Route::controller(App\Http\Controllers\Front\PageController::class)->group(function () {
     Route::get('/', 'home')->name('home');
 
-    Route::get('choose_family', \App\Livewire\FamilySelector::class)->name('choose_family');
+//    Route::get('choose_family', \App\Livewire\FamilySelector::class)->name('choose_family');
 
     //    Route::get('about', 'about')->name('about');
     Route::get('help', 'help')->name('help');
