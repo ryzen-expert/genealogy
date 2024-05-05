@@ -56,6 +56,11 @@ class ProfileForm extends Form
     {
         return [
             'firstname' => ['required', 'string', 'max:255'],
+            'father_name' => ['required', 'string', 'max:255'],
+            'first_grandfather' => ['required', 'string', 'max:255'],
+            'second_grandfather' => ['required', 'string', 'max:255'],
+            'third_grandfather' => ['required', 'string', 'max:255'],
+
             'surname' => ['nullable', 'string', 'max:255'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname' => ['nullable', 'string', 'max:255'],

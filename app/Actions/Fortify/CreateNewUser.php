@@ -28,7 +28,7 @@ class CreateNewUser implements CreatesNewUsers
             'firstname' => ['nullable', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'family' => ['required', Rule::in(array_keys(AllFamilies()))],
+            //            'family' => ['required', Rule::in(array_keys(AllFamilies()))],
             'language' => ['required', Rule::in(array_values(config('app.available_locales')))],
             'timezone' => ['required', Rule::in(array_values(timezone_identifiers_list()))],
             'password' => $this->passwordRules(),
@@ -36,6 +36,8 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return DB::transaction(function () use ($input) {
+            $input['family'] = 19;
+
             return tap(User::create([
                 'firstname' => $input['firstname'] ?? null,
                 'surname' => $input['surname'],

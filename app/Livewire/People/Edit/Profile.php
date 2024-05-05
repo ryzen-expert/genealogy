@@ -21,7 +21,7 @@ class Profile extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-//        dd('dd');
+        //        dd('dd');
         $this->profileForm->person = $this->person;
 
         $this->profileForm->firstname = $this->person->firstname;
@@ -29,7 +29,7 @@ class Profile extends Component
         $this->profileForm->birthname = $this->person->birthname;
         $this->profileForm->nickname = $this->person->nickname;
 
-        $this->profileForm->father_name =  $this->person->father_name;
+        $this->profileForm->father_name = $this->person->father_name;
         $this->profileForm->first_grandfather = $this->person->first_grandfather;
         $this->profileForm->second_grandfather = $this->person->second_grandfather;
         $this->profileForm->third_grandfather = $this->person->third_grandfather;
@@ -47,6 +47,7 @@ class Profile extends Component
         if ($this->isDirty()) {
             $validated = $this->profileForm->validate();
 
+//            dd($validated);
             $this->person->update($validated);
 
             $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
@@ -72,8 +73,6 @@ class Profile extends Component
         $this->profileForm->first_grandfather != null or
         $this->profileForm->second_grandfather != null or
         $this->profileForm->third_grandfather != null or
-
-
 
         $this->profileForm->sex != $this->person->sex or
         $this->profileForm->gender_id != $this->person->gender_id or
