@@ -69,6 +69,7 @@ class Person extends Model
 
     protected $appends = [
         'name',
+        'full_name',
     ];
 
     /* -------------------------------------------------------------------------------------------- */
@@ -174,7 +175,22 @@ class Person extends Model
     protected function getNameAttribute(): ?string
     {
         return implode(' ', array_filter([$this->firstname,
-//            $this->father_name, $this->first_grandfather, $this->second_grandfather,
+        $this->father?->firstname ,$this->father?->father?->firstname,$this->father?->father?->father?->firstname,
+        $this->surname]));
+
+
+//            implode(' ', array_filter([$this->firstname,
+////            $this->father_name, $this->first_grandfather, $this->second_grandfather,
+//            $this->surname]));
+    }
+
+    protected function getFullNameAttribute(): ?string
+    {
+
+
+//        dd('ffff');
+        return implode(' ', array_filter([$this->firstname,
+            $this->father->firstname ,$this->father->father->firstname,$this->father->father->father->firstname,
             $this->surname]));
     }
 
