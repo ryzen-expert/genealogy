@@ -103,10 +103,10 @@ class Person extends Component
     {
         return
         $this->personForm->firstname != null or
-        $this->personForm->father_name != null or
-        $this->personForm->first_grandfather != null or
-        $this->personForm->second_grandfather != null or
-        $this->personForm->third_grandfather != null or
+//        $this->personForm->father_name != null or
+//        $this->personForm->first_grandfather != null or
+//        $this->personForm->second_grandfather != null or
+//        $this->personForm->third_grandfather != null or
 
         $this->personForm->surname != null or
         $this->personForm->birthname != null or

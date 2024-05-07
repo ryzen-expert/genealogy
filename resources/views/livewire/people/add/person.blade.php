@@ -20,19 +20,19 @@
                         autofocus required />
                 </div>
 
-                <!-- Additional select inputs for family relations -->
-                <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.father_name" id="father" label="{{ __('person.father_name') }}" wire:dirty.class="bg-warning-100 dark:text-black" required />
-                </div>
-                <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.first_grandfather" id="first_grandfather" label="{{ __('person.first_grandfather') }}" wire:dirty.class="bg-warning-100 dark:text-black" required />
-                </div>
-                <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.second_grandfather" id="second_grandfather" label="{{ __('person.second_grandfather') }}" wire:dirty.class="bg-warning-100 dark:text-black" required />
-                </div>
-                <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.third_grandfather" id="third_grandfather" label="{{ __('person.third_grandfather') }}" wire:dirty.class="bg-warning-100 dark:text-black" required />
-                </div>
+{{--                <!-- Additional select inputs for family relations -->--}}
+{{--                <div class="col-span-6 md:col-span-3">--}}
+{{--                    <x-ts-input wire:model="personForm.father_name" id="father" label="{{ __('person.father_name') }}" wire:dirty.class="bg-warning-100 dark:text-black" required />--}}
+{{--                </div>--}}
+{{--                <div class="col-span-6 md:col-span-3">--}}
+{{--                    <x-ts-input wire:model="personForm.first_grandfather" id="first_grandfather" label="{{ __('person.first_grandfather') }}" wire:dirty.class="bg-warning-100 dark:text-black" required />--}}
+{{--                </div>--}}
+{{--                <div class="col-span-6 md:col-span-3">--}}
+{{--                    <x-ts-input wire:model="personForm.second_grandfather" id="second_grandfather" label="{{ __('person.second_grandfather') }}" wire:dirty.class="bg-warning-100 dark:text-black" required />--}}
+{{--                </div>--}}
+{{--                <div class="col-span-6 md:col-span-3">--}}
+{{--                    <x-ts-input wire:model="personForm.third_grandfather" id="third_grandfather" label="{{ __('person.third_grandfather') }}" wire:dirty.class="bg-warning-100 dark:text-black" required />--}}
+{{--                </div>--}}
 
 
 
