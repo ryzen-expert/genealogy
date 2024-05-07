@@ -14,12 +14,16 @@
 <li>
     @if ($person)
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
-            <figure class="w-20">
+            <figure class="w-20  ">
                 <div class="user-image ">
                     @if ($person->photo && Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
                         <img src="{{ asset('storage/photos/' . $person->team_id . '/' . $person->photo) }}" class="w-full a rounded shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
                     @else
-                        <x-svg.person-no-image class="w-full rounded shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
+                        <img src="{{asset("img/$person->sex.png")}}" class="w-full a rounded shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+
+
+{{--                        <img src="{{asset("img/$person->sex.png")}}"  class="w-full rounded shadow-lg dark:shadow-black/30  fill-pink-700" alt="no-image-found">--}}
+{{--                        <x-svg.person-no-image class="w-full rounded shadow-lg dark:shadow-black/30 {{ $person->sex === 'm' ? 'fill-neutral-400' : 'fill-pink-500' }} " alt="no-image-found" />--}}
                     @endif
 
                     @if ($person->dod or $person->yod)
