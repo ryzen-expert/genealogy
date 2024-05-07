@@ -28,10 +28,10 @@ class Person extends Component
         $this->personForm->birthname = null;
         $this->personForm->nickname = null;
 
-        $this->personForm->father_name = null;
-        $this->personForm->first_grandfather = null;
-        $this->personForm->second_grandfather = null;
-        $this->personForm->third_grandfather = null;
+//        $this->personForm->father_name = null;
+//        $this->personForm->first_grandfather = null;
+//        $this->personForm->second_grandfather = null;
+//        $this->personForm->third_grandfather = null;
 
         $this->personForm->sex = null;
         $this->personForm->gender_id = null;

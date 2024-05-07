@@ -136,17 +136,6 @@ class Child extends Component
 
 //                dd($new_person ,$this->person->id);
 
-                $father =   Person::find($this->person->id) ?? null;
-
-//                dd($father);
-                $ancestors = getAncestors($father) ;
-
-                $new_person->father_name = $father->firstname;
-                $new_person->first_grandfather = $ancestors->firstWhere('degree', 1)->firstname;
-                $new_person->second_grandfather = $ancestors->firstWhere('degree', 2)->firstname;
-                $new_person->third_grandfather = $ancestors->firstWhere('degree', 3)->firstname;
-
-
 
                 $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();
             }

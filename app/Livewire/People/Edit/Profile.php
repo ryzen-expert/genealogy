@@ -29,10 +29,10 @@ class Profile extends Component
         $this->profileForm->birthname = $this->person->birthname;
         $this->profileForm->nickname = $this->person->nickname;
 
-        $this->profileForm->father_name = $this->person->father_name;
-        $this->profileForm->first_grandfather = $this->person->first_grandfather;
-        $this->profileForm->second_grandfather = $this->person->second_grandfather;
-        $this->profileForm->third_grandfather = $this->person->third_grandfather;
+//        $this->profileForm->father_name = $this->person->father_name;
+//        $this->profileForm->first_grandfather = $this->person->first_grandfather;
+//        $this->profileForm->second_grandfather = $this->person->second_grandfather;
+//        $this->profileForm->third_grandfather = $this->person->third_grandfather;
 
         $this->profileForm->sex = $this->person->sex;
         $this->profileForm->gender_id = $this->person->gender_id;
@@ -68,11 +68,11 @@ class Profile extends Component
         $this->profileForm->surname != $this->person->surname or
         $this->profileForm->birthname != $this->person->birthname or
         $this->profileForm->nickname != $this->person->nickname or
-
-        $this->profileForm->father_name != null or
-        $this->profileForm->first_grandfather != null or
-        $this->profileForm->second_grandfather != null or
-        $this->profileForm->third_grandfather != null or
+//
+//        $this->profileForm->father_name != null or
+//        $this->profileForm->first_grandfather != null or
+//        $this->profileForm->second_grandfather != null or
+//        $this->profileForm->third_grandfather != null or
 
         $this->profileForm->sex != $this->person->sex or
         $this->profileForm->gender_id != $this->person->gender_id or

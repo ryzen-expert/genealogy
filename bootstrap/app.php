@@ -31,35 +31,35 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
 
-//        $exceptions->render(function (Throwable $exception, Request $request) {
-//
-//            if (app()->isProduction() && !$exception instanceof  \Illuminate\Validation\ValidationException ) {
-//
-//
-//                $status = method_exists($exception, 'getStatusCode') ? $exception->getStatusCode() : 500;
-//
-////                dd($exception , $exception instanceof  \Illuminate\Validation\ValidationException    ,$exception->getCode() ,$status);
-//                $error = method_exists($exception, 'getError') ? $exception->getError() : 'Server Error';
-//                $message = $exception->getMessage();
-////                                        dd($message ,$status ,$exception);
-//                if ($status == 419 && $exception->getCode() !== 0) {
-//                    $error = 'Session Expired';
-//                    $message = 'Your session has expired. Please refresh the page and try again.';
-//                }
-//
-//                if ($status == 403 && $exception->getCode() !== 0) {
-//                    $error = 'Forbidden Access';
-//                    $message = 'Your session has expired. Please refresh the page and try again.';
-//                }
-//
-//                return response()->view('errors.error', [
-//                    'status' => $status,
-//                    'error' => $error,
-//                    'message' => $message,
-//                ], $status);
-//
-//            }
-////            dd($exceptions);
-//        });
+        $exceptions->render(function (Throwable $exception, Request $request) {
+
+            if (app()->isProduction() && !$exception instanceof  \Illuminate\Validation\ValidationException ) {
+
+
+                $status = method_exists($exception, 'getStatusCode') ? $exception->getStatusCode() : 500;
+
+//                dd($exception , $exception instanceof  \Illuminate\Validation\ValidationException    ,$exception->getCode() ,$status);
+                $error = method_exists($exception, 'getError') ? $exception->getError() : 'Server Error';
+                $message = $exception->getMessage();
+//                                        dd($message ,$status ,$exception);
+                if ($status == 419 && $exception->getCode() !== 0) {
+                    $error = 'Session Expired';
+                    $message = 'Your session has expired. Please refresh the page and try again.';
+                }
+
+                if ($status == 403 && $exception->getCode() !== 0) {
+                    $error = 'Forbidden Access';
+                    $message = 'Your session has expired. Please refresh the page and try again.';
+                }
+
+                return response()->view('errors.error', [
+                    'status' => $status,
+                    'error' => $error,
+                    'message' => $message,
+                ], $status);
+
+            }
+//            dd($exceptions);
+        });
 
     })->create();
