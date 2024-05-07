@@ -190,7 +190,7 @@ class Person extends Model
 
 //        dd('ffff');
         return implode(' ', array_filter([$this->firstname,
-            $this->father->firstname ,$this->father->father->firstname,$this->father->father->father->firstname,
+        $this->father?->firstname ,$this->father?->father?->firstname,$this->father?->father?->father?->firstname,
             $this->surname]));
     }
 
