@@ -55,7 +55,8 @@ Route::middleware([
         Route::get('search', 'search')->name('people.search');
         Route::get('birthdays', 'birthdays')->name('people.birthdays');
 
-        Route::get('people/add', 'add')->name('people.add')->middleware('check.newfamilymember');
+        Route::get('people/add', 'add')->name('people.add');
+//            ->middleware('check.newfamilymember');
         Route::get('people/{person}', 'show')->name('people.show');
         Route::get('people/{person}/ancestors', 'ancestors')->name('people.ancestors');
         Route::get('people/{person}/descendants', 'descendants')->name('people.descendants');

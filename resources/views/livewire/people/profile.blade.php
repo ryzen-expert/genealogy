@@ -82,7 +82,7 @@
 
                 <tr>
                     <td class="pr-2 border-t-2 border-r-2">{{ __('person.father_name') }}</td>
-                    <td class="pl-2 border-t-2">{{ $person->father->firstname }}</td>
+                    <td class="pl-2 border-t-2">{{ $person->father?->firstname }}</td>
                 </tr>
 
                 <tr>
