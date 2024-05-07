@@ -55,6 +55,7 @@ class Ancestors extends Component
             SELECT * FROM ancestors ORDER BY degree, sex DESC;
         "));
 
+//        dd($this->ancestors);
         $this->count_max = $this->ancestors->max('degree') + 1;
 
         if ($this->count > $this->count_max) {

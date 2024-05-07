@@ -30,7 +30,7 @@ class CheckNewFamilyMemberRole
         }
 
         // If the user does not meet the criteria, you can redirect them or show an error
-        return   redirect('search')->withErrors('You are not allowed to perform this action.');
+        return   redirect('search')->dangerBanner('You are not allowed to perform this action.');
 
     }
 }

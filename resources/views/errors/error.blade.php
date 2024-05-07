@@ -10,7 +10,8 @@
         <div class="flex flex-col items-center">
             <div>
                 <x-authentication-card-logo />
-                <p class="text-danger-600">Something went wrong!   {{\Illuminate\Support\Facades\Auth::check()}}</p>
+                <p class="text-danger-600 text-center">{{$error}} {{$status}}    </p>
+{{--                <p class="text-danger-600">{{$message}}    </p>--}}
             </div>
 
             <x-button  href="{{  \Illuminate\Support\Facades\Auth::check() ? route('people.search') : route('login')}}" class="mt-2"

@@ -42,11 +42,14 @@ class Child extends Component
         if ($this->isDirty()) {
             $validated = $this->childForm->validate();
 
+//            dd($validated ,$this->person);
             if ($validated['person_id']) {
                 if ($this->person->sex === 'm') {
                     Person::findOrFail($validated['person_id'])->update([
                         'father_id' => $this->person->id,
                     ]);
+
+
 
                     $this->toast()->success(__('app.save'), $this->person->name . ' ' . __('app.saved') . '.')->flash()->send();
                 } else {
@@ -57,6 +60,7 @@ class Child extends Component
                     $this->toast()->success(__('app.save'), $this->person->name . ' ' . __('app.saved') . '.')->flash()->send();
                 }
             } else {
+
                 if ($this->person->sex === 'm') {
                     $new_person = Person::create([
                         'firstname' => $validated['firstname'],
@@ -66,6 +70,20 @@ class Child extends Component
                         'father_id' => $this->person->id,
                         'team_id' => $this->person->team_id,
                     ]);
+
+
+//                    $father =   Person::find($this->person->id) ?? null;
+//
+//                    dd($father);
+//                    $ancestors = getAncestors($father) ;
+//
+//                    $new_person->father_name = $father->firstname;
+//                    $new_person->first_grandfather = $ancestors->firstWhere('degree', 1)->firstname;
+//                    $new_person->second_grandfather = $ancestors->firstWhere('degree', 2)->firstname;
+//                    $new_person->third_grandfather = $ancestors->firstWhere('degree', 3)->firstname;
+
+
+
                 } else {
                     $new_person = Person::create([
                         'firstname' => $validated['firstname'],
@@ -76,6 +94,10 @@ class Child extends Component
                         'team_id' => $this->person->team_id,
                     ]);
                 }
+
+
+
+
 
                 if ($this->childForm->image) {
                     // if needed, create team photo folder
@@ -111,6 +133,20 @@ class Child extends Component
                         $this->toast()->error(__('app.save'), __('app.image_not_saved') . '.')->flash()->send();
                     }
                 }
+
+//                dd($new_person ,$this->person->id);
+
+                $father =   Person::find($this->person->id) ?? null;
+
+//                dd($father);
+                $ancestors = getAncestors($father) ;
+
+                $new_person->father_name = $father->firstname;
+                $new_person->first_grandfather = $ancestors->firstWhere('degree', 1)->firstname;
+                $new_person->second_grandfather = $ancestors->firstWhere('degree', 2)->firstname;
+                $new_person->third_grandfather = $ancestors->firstWhere('degree', 3)->firstname;
+
+
 
                 $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();
             }

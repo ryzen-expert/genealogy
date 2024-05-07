@@ -141,12 +141,13 @@ class JetstreamServiceProvider extends ServiceProvider
         ])->description('Members have the ability to read people.');
 
         Jetstream::role('new_family_member', 'new_family_member', [
-              'person:create',
             'person:read',
-            'person:update',
-            'couple:create',
+            'person:createOwn',
+//            'person:read',
+            'person:updateOwn',
+//            'couple:create',
             'couple:read',
-            'couple:update',
+//            'couple:update',
         ])->description('new_family_member have the ability to read people.');
 
     }

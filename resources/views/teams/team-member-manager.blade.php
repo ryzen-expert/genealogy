@@ -31,6 +31,7 @@
                         <x-input-error for="email" class="mt-2" />
                     </div>
 
+{{--                    @dd($this)--}}
                     {{-- role --}}
                     @if (count($this->roles) > 0)
                         <div class="col-span-6 lg:col-span-4">

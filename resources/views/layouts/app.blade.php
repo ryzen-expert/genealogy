@@ -73,7 +73,7 @@
 
         <!-- Warnings Link -->
         <a href="{{ route('people.search') }}" class="{{ request()->routeIs('people.search') ? 'active bg-blue-900 text-white' : '' }}">
-            <x-ts-icon icon="search" class="size-6 mr-1" />
+            <x-ts-icon icon="user" class="size-6 mr-1" />
 {{--            <span class="btm-nav-label">  {{ __('app.search') }}</span>--}}
         </a>
 

@@ -13,6 +13,7 @@ class PageController extends Controller
     public function home(Request $request)
     {
 
+
          return  Auth::user() ?to_route('people.search') : to_route('login');
 //        return to_route('login');
         $homeFile = Jetstream::localizedMarkdownPath('home.md');
@@ -24,6 +25,9 @@ class PageController extends Controller
 
     public function about(Request $request)
     {
+        if(app()->isProduction()){
+            return  to_route('login');
+        }
         $aboutFile = Jetstream::localizedMarkdownPath('about.md');
 
         return view('about', [
@@ -33,6 +37,9 @@ class PageController extends Controller
 
     public function help(Request $request)
     {
+        if(app()->isProduction()){
+            return  to_route('login');
+        }
         $helpFile = Jetstream::localizedMarkdownPath('help.md');
 
         return view('help', [

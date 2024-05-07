@@ -41,6 +41,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+//    'web'
 
     //    'ChooseFamily'
 
@@ -87,7 +88,7 @@ Route::middleware([
             //            Route::get('test', 'test')->name('test');
 
             Route::get('persons', 'persons')->name('persons');
-            Route::get('teams', 'teams')->name('teams');
+            Route::get('families', 'teams')->name('teams');
             Route::get('users', 'users')->name('users');
         });
 

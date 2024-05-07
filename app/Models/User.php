@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
@@ -106,11 +107,22 @@ class User extends Authenticatable
     {
         return $this->hasTeamRole($this->currentTeam, $role->value);
     }
+
 //    public function CanP(Role $role): bool
 //    {
 //        return $this->hasTeamRole($this->currentTeam, $role->value);
 //    }
 
+
+    public function allTeams()
+    {
+//        dd(Auth::check() && Auth::user()->is_developer , $this->ownedTeams ,$this->teams ,$this->ownedTeams->merge($this->teams)->sortBy('name'));
+        if(Auth::check() && Auth::user()->is_developer ){
+
+            return  Team::all();
+        }
+        return $this->ownedTeams->merge($this->teams)->sortBy('name');
+    }
 
     /* -------------------------------------------------------------------------------------------- */
     // Relations

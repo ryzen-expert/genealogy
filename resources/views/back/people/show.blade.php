@@ -11,6 +11,13 @@
 
     <div class="w-full py-5 space-y-5 overflow-x-auto">
         <livewire:people.heading :person="$person" />
+        @if (auth()->user()->hasPermission('person:create') ||  $person->hasPermission('person:createOwn'))
+            <x-ts-button href="/people/add" color="emerald" class="text-sm">
+                <x-ts-icon icon="user-plus" class="me-2" />
+                {{ __('person.add_person') }}
+            </x-ts-button>
+        @endif
+
 
         <div class="flex flex-wrap gap-5">
             <div class="min-w-100 md:max-w-max flex flex-col flex-grow gap-5">

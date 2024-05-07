@@ -20,9 +20,9 @@ class Person extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'firstname',
 
         'created_by',
+        'firstname',
         'father_name',
         'first_grandfather',
         'second_grandfather',
@@ -81,6 +81,18 @@ class Person extends Model
         static::creating(function ($person) {
             if (Auth::check()) {
                 $person->created_by = Auth::id();
+//                dd($person);
+//                $father =   Person::find($person->father_id) ?? null;
+//                $ancestors = getAncestors($father) ;
+//
+//                $person->father_name = $father->firstname;
+//                $person->first_grandfather = $ancestors->firstWhere('degree', 1)->firstname;
+//                $person->second_grandfather = $ancestors->firstWhere('degree', 2)->firstname;
+//                $person->third_grandfather = $ancestors->firstWhere('degree', 3)->firstname;
+
+
+
+
             }
         });
 
@@ -93,10 +105,17 @@ class Person extends Model
             } else {
                 $builder->where('people.team_id', auth()->user()->current_team_id);
 
-//                $builder->whereIn('people.team_id', domainFamiliesIds());
+                //                $builder->whereIn('people.team_id', domainFamiliesIds());
             }
         });
 
+    }
+
+    public function hasPermission(string $permission): bool
+    {
+        //        dd('dd' ,$permission , auth()->user()->hasPermission($permission) ,Auth::id() === $this->created_by);
+        return auth()->user()->hasPermission($permission) && Auth::id() === $this->created_by;
+        //        return $this->hasTeamPermission($this->currentTeam, $permission) && Auth::id() ;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -154,7 +173,9 @@ class Person extends Model
     /* -------------------------------------------------------------------------------------------- */
     protected function getNameAttribute(): ?string
     {
-        return implode(' ', array_filter([$this->firstname, $this->father_name ,$this->first_grandfather,$this->second_grandfather,$this->third_grandfather]));
+        return implode(' ', array_filter([$this->firstname,
+//            $this->father_name, $this->first_grandfather, $this->second_grandfather,
+            $this->surname]));
     }
 
     protected function getAgeAttribute(): ?int

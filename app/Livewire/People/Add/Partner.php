@@ -96,13 +96,13 @@ class Partner extends Component
     public function render()
     {
 //        dd(Session::get('tree_domain') ,Session::get('sub_domain') , );
-      $teams =  Domain::whereDomain(Session::get('sub_domain'))->pluck('team_id')->toArray();
+//      $teams =  Domain::whereDomain(Session::get('sub_domain'))->pluck('team_id')->toArray();
 
         $persons = Person::PartnerOffset($this->person->birth_date, $this->person->birth_year)
             ->orderBy('firstname', 'asc')->orderBy('surname', 'asc')
-            ->whereIn('people.team_id',$teams)
-            ->where('sex','<>',$this->person->sex)
-            ->withoutGlobalScope('team')
+//            ->whereIn('people.team_id',$teams)
+//            ->where('sex','<>',$this->person->sex)
+//            ->withoutGlobalScope('team')
             ->get()
             ->map(function ($p) {
 //                dd($p);
@@ -110,7 +110,7 @@ class Partner extends Component
                     'id' => $p->id,
                     'team' => $p->team_id,
 //                    'description' =>
-                    'description' => __('team.team') .' '. $p->team->name,
+//                    'description' => __('team.team') .' '. $p->team->name,
                     'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
                 ];
             })->toArray();

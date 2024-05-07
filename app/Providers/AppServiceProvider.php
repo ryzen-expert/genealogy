@@ -64,16 +64,16 @@ class AppServiceProvider extends ServiceProvider
         // -----------------------------------------------------------------------
         Event::listen(\Illuminate\Auth\Events\Login::class, function ($event) {
             try {
-                if ($position = Location::get()) {
-                    $country_name = $position->countryName;
-                    $country_code = $position->countryCode;
-                } else {
+//                if ($position = Location::get()) {
+//                    $country_name = $position->countryName;
+//                    $country_code = $position->countryCode;
+//                } else {
                     $country_name = null;
                     $country_code = null;
-                }
+//                }
 
                 // To Do : Remove the kreaweb filter in production
-                if ($event->user->email != 'kreaweb@genealogy.test') {
+                if ($event->user->email != 'm@m.co') {
                     Userlog::create([
                         'user_id' => $event->user->id,
                         'country_name' => $country_name,
@@ -114,12 +114,12 @@ class AppServiceProvider extends ServiceProvider
         // -----------------------------------------------------------------------
         // about
         // -----------------------------------------------------------------------
-        AboutCommand::add('Application', [
-            'Name' => 'Genealogy',
-            'author' => 'kreaweb.be',
-            'github' => 'https://github.com/MGeurts/genealogy',
-            'license' => 'MIT License',
-        ]);
+//        AboutCommand::add('Application', [
+//            'Name' => 'Genealogy',
+//            'author' => 'kreaweb.be',
+//            'github' => 'https://github.com/MGeurts/genealogy',
+//            'license' => 'MIT License',
+//        ]);
 
         // -----------------------------------------------------------------------
         // timezone management

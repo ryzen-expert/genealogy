@@ -21,7 +21,7 @@
 
                         <x-nav-link href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
                             <x-ts-icon icon="search" class="size-5 mr-1" />
-                            {{ __('app.search') }}
+                            {{ __('app.search') }} dd
                         </x-nav-link>
                     </div>
 
@@ -221,13 +221,13 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden">
         <div class="space-y-1 border-t border-gray-200">
              <x-nav-link-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
-                <x-ts-icon icon="home" class="size-5 inline-block mr-1" />
+{{--                <x-ts-icon icon="home" class="size-5 inline-block mr-1" />--}}
                 {{ __('app.home') }}
             </x-nav-link-responsive>
 
 
             <x-nav-link-responsive href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
-                <x-ts-icon icon="search" class="size-5 inline-block mr-1" />
+                <x-ts-icon icon="user" class="size-5 inline-block mr-1" />
                 {{ __('app.search') }}
             </x-nav-link-responsive>
 

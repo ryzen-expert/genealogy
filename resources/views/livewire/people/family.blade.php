@@ -7,7 +7,7 @@
 
 {{--            @dd(\Illuminate\Support\Facades\Auth::id() === $person->created_by)--}}
 
-            @if (auth()->user()->hasPermission('person:update') || \Illuminate\Support\Facades\Auth::id() === $person->created_by )
+            @if (auth()->user()->hasPermission('person:update') ||  $person->hasPermission('person:updateOwn') )
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/edit-family">
@@ -24,7 +24,7 @@
 
     <div class="grid grid-cols-6">
         <div class="col-span-2 pl-2 py-2 border-b">{{ __('person.father') }}</div>
-        <div class="col-span-4 pr-2 py-2 border-b">
+        <div class="col-span-4 pr-2 py-2 border-b text-balance">
             @if ($person->father)
                 <x-link href="/people/{{ $person->father->id }}" class="{{ $person->father->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
                     {{ $person?->father->name }}

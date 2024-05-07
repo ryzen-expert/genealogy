@@ -11,6 +11,8 @@ return [
 
     'partner' => 'Partner',
     'partners' => 'Partners',
+    'husband' => 'Husband',
+    'wife' => 'Wife',
 
     'children' => 'Children',
     'parents' => 'Parents',

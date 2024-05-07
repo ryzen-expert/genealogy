@@ -8,6 +8,7 @@ class RegisterResponse implements RegisterResponseContract
 {
     public function toResponse($request)
     {
-        return redirect(session('link'));
+
+        return redirect(route('people.add'));
     }
 }

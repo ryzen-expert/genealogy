@@ -5,7 +5,7 @@
                 {{ __('person.children') }} <x-ts-badge color="emerald" text="{{ count($children) }}" />
             </div>
 
-            @if (auth()->user()->hasPermission('person:create'))
+            @if (auth()->user()->hasPermission('person:create') ||  $person->hasPermission('person:createOwn') )
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-child">
@@ -15,7 +15,7 @@
                             </x-ts-dropdown.items>
                         </a>
 
-                        @if (auth()->user()->hasPermission('person:update'))
+                        @if (auth()->user()->hasPermission('person:update') ||  $person->hasPermission('person:updateOwn') )
                             <hr />
 
                             @foreach ($children as $child)

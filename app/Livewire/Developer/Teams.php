@@ -80,6 +80,8 @@ class Teams extends Component implements HasForms, HasTable
             ], layout: FiltersLayout::AboveContent)
             ->actions([
                 //
+
+//                Tables\Actions\EditAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

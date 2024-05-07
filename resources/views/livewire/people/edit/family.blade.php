@@ -29,7 +29,7 @@
                 <div class="col-span-6 text-sm rounded bg-warning-200 p-3 text-warning-700" role="alert">
                     <b>{{ __('person.father') }}</b> and <b>{{ __('person.mother') }}</b> <u>may only be used</u> for the <b>biological parents</b> and must therefore be of opposite sex.
                     <x-hr.narrow class="col-span-6" />
-                    <b>{{ __('person.parents') }}</b> <u>may be</u> the biological parents, but <u>may also be</u> used for non-biological parents (gay or adoptive).<br />
+                    <b>{{ __('person.parents') }}</b> <u>may be</u> the biological parents, but <u>may also be</u> used for non-biological parents (  adoptive).<br />
                     In the latter case, simply leave <b>{{ __('person.father') }}</b> and/or <b>{{ __('person.mother') }}</b> blank.
                 </div>
 
