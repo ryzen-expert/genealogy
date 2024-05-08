@@ -11,6 +11,7 @@ use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Opcodes\LogViewer\Facades\LogViewer;
@@ -58,6 +59,11 @@ class AppServiceProvider extends ServiceProvider
         // Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
         //     Log::warning("N+1 Query detected.\r\n" . sprintf('N+1 Query detected in model %s on relation %s.', get_class($model), $relation));
         // });
+
+        if(app()->isProduction() ) {
+            URL::forceScheme('https');
+        }
+
 
         // -----------------------------------------------------------------------
         // log all users
