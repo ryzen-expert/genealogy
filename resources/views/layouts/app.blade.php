@@ -22,7 +22,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js'])
 
     {{-- styles --}}
-    @livewireStyles
+{{--    @livewireStyles--}}
     @filamentStyles
     @stack('styles')
 </head>
@@ -100,7 +100,7 @@
     </div>
 @endif
     {{-- scripts --}}
-    @livewireScripts
+{{--    @livewireScripts--}}
     @filamentScripts
     @stack('scripts')
     <script>
